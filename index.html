@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر كروشيه | خيوط تُنسج بحُب</title>
+    <title>عِقد وغرزة 🧶</title>
+    <!-- مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
 
         :root {
-            --primary-color: #A67B5B; /* لون بني دافئ */
-            --secondary-color: #ECB176; /* لون مقارب للون الخيوط */
+            --primary-color: #6A4B3A; /* تم تغميق اللون البني ليكون أكثر فخامة ووضوحاً */
+            --secondary-color: #D49A6A; /* درجة متناسقة مع البني الغامق */
             --bg-color: #FEFAE0; /* خلفية سكرية/بيج */
-            --text-color: #4A3B32;
+            --text-color: #3E2723;
             --white: #FFFFFF;
+        }
+
+        /* تفعيل التمرير السلس */
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -28,21 +35,99 @@
             line-height: 1.6;
         }
 
+        /* شريط التنقل (Navbar) */
+        header {
+            background-color: rgba(254, 250, 224, 0.85);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container img {
+            height: 70px; /* تم تكبير الشعار ليكون أوضح */
+            max-width: 150px;
+            object-fit: contain;
+            mix-blend-mode: darken; /* هذه الخاصية السحرية تدمج خلفية الصورة مع شريط التنقل لتبدو شفافة */
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        /* تأثير خط سفلي جميل عند تمرير الماوس على الروابط */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0; /* يبدأ الخط من اليمين لأن الموقع عربي */
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* حركات الظهور (Animations) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(rgba(254, 250, 224, 0.9), rgba(254, 250, 224, 0.9)), 
+            padding: 150px 20px 100px;
+            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), 
                         url('https://images.unsplash.com/photo-1606505705663-1498c47402aa?auto=format&fit=crop&w=1200&q=80') center/cover;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
         }
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .btn {
             background-color: var(--primary-color);
@@ -55,29 +140,55 @@
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            display: inline-block;
         }
         .btn:hover {
-            background-color: #8c6347;
+            background-color: #50372A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(106, 75, 58, 0.3);
         }
 
         /* Features Section */
         .features {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             max-width: 1000px;
             margin: auto;
         }
+        .features h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            gap: 25px;
         }
         .feature-card {
             background-color: var(--white);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
         }
         .feature-card h3 {
             color: var(--primary-color);
@@ -86,31 +197,110 @@
 
         /* Gallery Section */
         .gallery {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background-color: var(--white);
             text-align: center;
+        }
+        .gallery h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
         }
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            max-width: 1000px;
-            margin: 30px auto;
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
         }
-        .gallery-item {
+        .gallery-card {
             background-color: var(--bg-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .gallery-card:hover {
+            transform: scale(1.02);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .gallery-content {
             padding: 20px;
-            border-radius: 10px;
-            font-weight: 500;
+        }
+        .gallery-content h3 {
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        /* Testimonials Section (آراء العملاء) */
+        .testimonials {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .testimonials h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        .testimo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            align-items: stretch; /* هذا يجعل الكروت تتمدد لتكون بنفس الارتفاع */
+        }
+        .testimo-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: right;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* هذا يدفع التقييم والاسم لأسفل الكرت دائماً */
+            height: 100%;
+        }
+        .quote-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            opacity: 0.5;
+            margin-bottom: 10px;
+        }
+        .client-info {
+            margin-top: 20px;
+        }
+        .client-name {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        .stars {
+            color: #FFD700;
+            margin-top: 5px;
         }
 
         /* About Section */
         .about {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
+            background-color: var(--white);
+        }
+        .about-content {
             max-width: 800px;
             margin: auto;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        .about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
         }
 
         /* Lead Capture Section */
@@ -118,95 +308,279 @@
             background-color: var(--primary-color);
             color: var(--white);
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
         .lead-capture h2 {
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .lead-capture p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
         }
         .lead-capture form {
-            margin-top: 20px;
             display: flex;
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
         }
         .lead-capture input {
-            padding: 15px;
-            width: 300px;
+            padding: 15px 20px;
+            width: 350px;
+            max-width: 100%;
             border-radius: 25px;
             border: none;
             outline: none;
             font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
         }
-        .lead-capture button {
+        .btn-dark {
             background-color: var(--text-color);
             color: var(--white);
         }
-        .lead-capture button:hover {
-            background-color: #332720;
+        .btn-dark:hover {
+            background-color: #2D1B13;
         }
 
-        /* Footer */
+        /* Footer & Social Media */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             background-color: var(--text-color);
             color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .copyright-text {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: -15px; /* لتقريبها من الجملة التي فوقها */
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--white);
+            color: var(--text-color);
+            border-radius: 50%;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        /* تأثيرات حركية ولونية جميلة عند تمرير الماوس على مواقع التواصل */
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .social-icons a.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-icons a.tiktok:hover { background: #000000; text-shadow: 2px 2px 0 #00f2fe, -2px -2px 0 #fe0979;}
+        .social-icons a.snapchat:hover { background: #FFFC00; color: #000; }
+
+        /* زر الواتساب العائم */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            background-color: #1ebe57;
+            transform: scale(1.1);
+        }
+
+        /* استجابة الشاشات الصغيرة (Mobile Responsiveness) */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- شريط التنقل مع اللوجو -->
+    <header>
+        <a href="#" class="logo-container">
+            <img src="image_0e7762.png" alt="شعار عِقد وغرزة">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">مميزاتنا</a></li>
+            <li><a href="#gallery">أعمالنا</a></li>
+            <li><a href="#testimonials">آراء العملاء</a></li>
+            <li><a href="#about">قصتنا</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+    </header>
+
     <section class="hero">
-        <h1>خيوطٌ تُنسج بحُب</h1>
-        <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئاً ولمسة فنية على يومك.</p>
-        <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
+        <div class="reveal">
+            <h1>من خيوطنا ننسُج لك لحظات دافئة❤️</h1>
+            <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئاً ولمسة فنية على يومك.</p>
+            <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
+        </div>
     </section>
 
-    <section class="features">
-        <h2>لماذا تختار قطعنا؟</h2>
+    <section id="features" class="features">
+        <h2 class="reveal">لماذا نحن؟</h2>
         <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-hand-holding-heart feature-icon"></i>
+                </div>
                 <h3>صُنعت بأيدي شغوفة</h3>
                 <p>كل قطعة تأخذ وقتها من العناية والاهتمام، لتصلك كتحفة فنية لا تتكرر.</p>
             </div>
-            <div class="feature-card">
-                <h3>خيوط تحاكي النعومة</h3>
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-feather feature-icon"></i>
+                </div>
+                <h3>نعومة الريش</h3>
                 <p>ننتقي أجود أنواع القطن والصوف، لضمان ملمس لطيف وجودة تدوم طويلاً.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-palette feature-icon"></i>
+                </div>
                 <h3>على ذوقك تماماً</h3>
                 <p>من اختيار الألوان إلى تحديد المقاسات، نحول خيالك إلى قطعة ملموسة.</p>
             </div>
         </div>
     </section>
 
-    <section class="gallery">
-        <h2>أبرز إبداعاتنا</h2>
+    <section id="gallery" class="gallery">
+        <h2 class="reveal">أبرز إبداعاتنا</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">توزيعات المناسبات السعيدة 🎁</div>
-            <div class="gallery-item">أصدقاء الصغار (أميجرومي) 🧸</div>
-            <div class="gallery-item">أناقة التفاصيل (حقائب وسكارفات) 🧣</div>
+            <div class="gallery-card reveal">
+                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+1" alt="توزيعات كروشيه" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>توزيعات المناسبات السعيدة 🎁</h3>
+                    <p>أضف لمسة مختلفة لمناسباتك.</p>
+                </div>
+            </div>
+            <div class="gallery-card reveal">
+                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+2" alt="أميجرومي" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>أصدقاء الصغار (أميجرومي) 🧸</h3>
+                    <p>دمى آمنة ولطيفة لأطفالك.</p>
+                </div>
+            </div>
+            <div class="gallery-card reveal">
+                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+3" alt="حقائب كروشيه" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>أناقة التفاصيل 🧣</h3>
+                    <p>حقائب وسكارفات شتوية مميزة.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="about">
-        <h2>قصتنا</h2>
-        <p>لم نبدأ بمجرد إبرة وخيط، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءاً من وقتنا لنهديك قطعة تحمل روحاً، لا مجرد منتج.</p>
+    <section id="testimonials" class="testimonials">
+        <h2 class="reveal">ماذا يقول عملاؤنا؟</h2>
+        <div class="testimo-grid">
+            <div class="testimo-card reveal">
+                <div>
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <p>"القطعة وصلتني أجمممل بكثير من الصور! دقة في الشغل ونظافة في الخيوط تفتح النفس، يعطيكم ألف عافية."</p>
+                </div>
+                <div class="client-info">
+                    <div class="stars">★★★★★</div>
+                    <span class="client-name">- سارة أحمد</span>
+                </div>
+            </div>
+            <div class="testimo-card reveal">
+                <div>
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <p>"طلبت دمية لبنتي ومقاساتها وألوانها طلعت بالضبط مثل ما طلبت، التعامل راقي جداً والتوصيل سريع. تجربة ممتازة وأكيد راح أكررها قريباً."</p>
+                </div>
+                <div class="client-info">
+                    <div class="stars">★★★★★</div>
+                    <span class="client-name">- نورة الخالد</span>
+                </div>
+            </div>
+            <div class="testimo-card reveal">
+                <div>
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <p>"السكارف الشتوي يدفي وشكله فخم."</p>
+                </div>
+                <div class="client-info">
+                    <div class="stars">★★★★★</div>
+                    <span class="client-name">- محمد عبدالله</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="lead-capture" id="contact">
+    <section id="about" class="about">
+        <div class="about-content reveal">
+            <h2>قصتنا</h2>
+            <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءاً من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="lead-capture reveal">
         <h2>كُن أول من يرى إبداعاتنا القادمة</h2>
         <p>سجل بريدك الإلكتروني الآن، واحصل على خصم 10% على طلبك الأول فور إطلاق المتجر.</p>
         <form action="#" method="POST">
             <input type="email" placeholder="أدخل بريدك الإلكتروني هنا..." required>
-            <button type="submit" class="btn">أرسل لي الخصم!</button>
+            <button type="submit" class="btn btn-dark">أرسل لي الخصم!</button>
         </form>
     </section>
 
     <footer>
         <p>صُنع بحب في السعودية ❤️</p>
+        <p class="copyright-text">جميع الحقوق محفوظة &copy; 2026</p>
+        <!-- أيقونات مواقع التواصل (ضع روابط حساباتك بدلاً من علامة #) -->
+        <div class="social-icons">
+            <a href="#" class="instagram" target="_blank" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="tiktok" target="_blank" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="snapchat" target="_blank" title="سناب شات"><i class="fa-brands fa-snapchat"></i></a>
+        </div>
     </footer>
+
+    <a href="https://wa.me/966545065415" class="whatsapp-float" target="_blank" title="تواصل معنا على واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- سكريبت لتفعيل حركات الظهور عند النزول بالصفحة (Scroll Animations) -->
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // لتشغيل الحركة للعناصر الظاهرة في البداية
+    </script>
 
 </body>
 </html>
