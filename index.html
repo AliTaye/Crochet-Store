@@ -64,7 +64,7 @@
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 15px;
             list-style: none;
         }
 
@@ -73,30 +73,17 @@
             color: var(--primary-color);
             font-weight: 600;
             font-size: 1.05rem;
-            position: relative;
-            padding-bottom: 5px;
-            transition: color 0.3s;
-        }
-
-        /* تأثير خط سفلي جميل عند تمرير الماوس على الروابط */
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            right: 0; /* يبدأ الخط من اليمين لأن الموقع عربي */
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-            border-radius: 2px;
+            padding: 8px 18px;
+            border-radius: 25px; /* شكل كبسولة ناعم */
+            transition: all 0.3s ease;
+            background-color: transparent;
         }
 
         .nav-links a:hover {
+            background-color: var(--bg-color); /* خلفية سكرية خفيفة عند التمرير */
             color: var(--primary-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            transform: translateY(-2px); /* ارتفاع بسيط للأعلى */
+            box-shadow: 0 4px 10px rgba(106, 75, 58, 0.1); /* ظل ناعم */
         }
 
         /* حركات الظهور (Animations) */
@@ -122,12 +109,6 @@
         }
         .hero h1 {
             font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .hero h2 {
-            font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: 700;
@@ -484,8 +465,7 @@
 
     <section class="hero">
         <div class="reveal">
-            <h1>عِقد وغرزة🧶</h1>
-            <h2>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h2>
+            <h1>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h1>
             <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئًا ولمسة فنية لحياتك.</p>
             <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
         </div>
