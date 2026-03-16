@@ -124,6 +124,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            /* 👇 🖼️ مكان تغيير صورة خلفية القسم الأول (البانر) 👇 */
             background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('https://placehold.co/1920x1080/FEFAE0/6A4B3A?text=Background') center/cover no-repeat;
         }
         .hero h1 {
@@ -342,20 +343,12 @@
         .about {
             padding: 100px 20px;
             text-align: center;
-            /* تمت إضافة الصورة كخلفية مع طبقة لونية فاتحة لضمان وضوح النص، وتأثير ثابت (fixed) لجمالية أكثر */
+            /* 👇 🖼️ مكان تغيير صورة خلفية قسم "قصتنا" 👇 */
             background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('image_9bde5b.jpg') center/cover no-repeat;
             background-attachment: fixed;
             position: relative;
             overflow: hidden;
         }
-        .pattern-bg {
-            position: absolute;
-            color: var(--primary-color);
-            opacity: 0.04;
-            z-index: 0;
-        }
-        .pattern-1 { top: -30px; right: -40px; font-size: 250px; transform: rotate(15deg); }
-        .pattern-2 { bottom: -40px; left: -30px; font-size: 200px; transform: rotate(-20deg); }
         .about-content {
             max-width: 800px;
             margin: auto;
@@ -470,8 +463,10 @@
             .testimo-card { min-width: calc(50% - 10px); } /* Show 2 cards on tablet */
         }
         @media (max-width: 768px) {
-            header { padding: 15px 20px; }
-            .menu-toggle { display: block; }
+            /* تصغير حجم شريط التنقل (الناف بار) في الجوال */
+            header { padding: 8px 15px; }
+            .logo-container { width: 45px; height: 45px; padding: 5px; }
+            .menu-toggle { display: block; font-size: 1.5rem; }
             
             /* Burger Menu Styling */
             .nav-links {
@@ -495,7 +490,11 @@
             }
 
             .hero h1 { font-size: 2.5rem; }
-            .testimo-card { min-width: 100%; } /* Show 1 card on mobile */
+            
+            /* تحسين عرض التعليقات في الجوال (تظهر جزء من الكرت التالي ليعرف المستخدم أنه يمكنه السحب) */
+            .testimo-card { min-width: 85%; } 
+            .testimo-slider { padding: 10px 5vw; gap: 15px; }
+            
             .slider-btn { display: none; } /* Hide buttons on mobile, rely on swipe */
             .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
         }
@@ -506,7 +505,7 @@
     <header>
         <div class="logo-container">
             <a href="#">
-                <!-- تأكد من وضع مسار الشعار الصحيح هنا -->
+                <!-- 👇 🖼️ مكان تغيير الشعار (اللوجو) 👇 -->
                 <img src="logo.jpeg" alt="شعار عِقد وغرزة" onerror="this.src='https://placehold.co/100x100/E7DBB3/6A4B3A?text=شعار'">
             </a>
         </div>
@@ -580,8 +579,10 @@
 
     <section id="gallery" class="gallery">
         <h2 class="section-title reveal">أبرز إبداعاتنا</h2>
+        <!-- 👇 🖼️ مكان تغيير صور معرض الأعمال 👇 -->
         <div class="gallery-grid">
             <div class="gallery-card reveal">
+                <!-- الصورة الأولى -->
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+1" alt="توزيعات كروشيه" class="gallery-img">
                 <div class="gallery-content">
                     <h3>توزيعات المناسبات السعيدة 🎁</h3>
@@ -589,6 +590,7 @@
                 </div>
             </div>
             <div class="gallery-card reveal">
+                <!-- الصورة الثانية -->
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+2" alt="أميجرومي" class="gallery-img">
                 <div class="gallery-content">
                     <h3>أصدقاء الصغار (أميجرومي) 🧸</h3>
@@ -596,6 +598,7 @@
                 </div>
             </div>
             <div class="gallery-card reveal">
+                <!-- الصورة الثالثة -->
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+3" alt="حقائب كروشيه" class="gallery-img">
                 <div class="gallery-content">
                     <h3>أناقة التفاصيل 🧣</h3>
@@ -673,8 +676,7 @@
     </section>
 
     <section id="about" class="about">
-        <i class="fa-solid fa-yarn pattern-bg pattern-1"></i>
-        <i class="fa-solid fa-mitten pattern-bg pattern-2"></i>
+        <!-- تم إزالة الأيقونات من هنا -->
         
         <div class="about-content reveal">
             <h2 class="section-title">قصتنا</h2>
