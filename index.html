@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 👇 هذا هو السطر السحري اللي يلون شريط الجوال (الساعة والبطارية) باللون البني 👇 -->
     <meta name="theme-color" content="#6A4B3A">
     
     <title>عِقد وغرزة 🧶</title>
@@ -22,8 +21,7 @@
 
         html {
             scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%; /* لمنع أجهزة الجوال من تكبير الخط تلقائياً */
-            /* جعل لون مساحة السحب الزائدة (التي تظهر خارج الموقع) باللون البني */
+            -webkit-text-size-adjust: 100%;
             background-color: var(--primary-color);
         }
 
@@ -35,7 +33,7 @@
         }
 
         body {
-            background-color: var(--bg-color); /* إرجاع لون الموقع الداخلي للبيج الأنيق */
+            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
@@ -130,7 +128,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('https://placehold.co/1920x1080/FEFAE0/6A4B3A?text=Background') center/cover no-repeat;
+            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('bgHero.jpg') center/cover no-repeat;
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -138,6 +136,11 @@
             margin-bottom: 15px;
             font-weight: 700;
         }
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
         .hero p {
             font-size: 1.2rem;
             margin: 0 auto 35px;
@@ -294,10 +297,10 @@
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             padding: 10px 0;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
         .testimo-slider::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
+            display: none;
         }
         .testimo-card {
             background-color: var(--white);
@@ -308,7 +311,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-width: calc(33.333% - 14px); /* Show 3 cards on desktop */
+            min-width: calc(33.333% - 14px);
             flex-shrink: 0;
             scroll-snap-align: center;
         }
@@ -363,7 +366,7 @@
         .about {
             padding: 100px 20px;
             text-align: center;
-            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('image_9bde5b.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('ourStory.jpg') center/cover no-repeat;
             background-attachment: fixed;
             position: relative;
             overflow: hidden;
@@ -491,7 +494,7 @@
             
             .nav-links {
                 position: absolute;
-                top: 100%; /* 👇 تم التعديل هنا: 100% تعني أن القائمة تلتصق تماماً بنهاية الناف بار 👇 */
+                top: 100%;
                 right: -100%; 
                 flex-direction: column;
                 background-color: var(--primary-color);
@@ -532,8 +535,8 @@
     <header>
         <div class="logo-container">
             <a href="#">
-                <!-- 👇 🖼️ مكان تغيير الشعار (اللوجو) 👇 -->
-                <img src="logo.jpeg" alt="شعار عِقد وغرزة" onerror="this.src='https://placehold.co/100x100/E7DBB3/6A4B3A?text=شعار'">
+                <!-- مكان (اللوجو)  -->
+                <img src="logo.jpeg" alt="شعار عِقد وغرزة" onerror="this.src='logo.jpeg'">
             </a>
         </div>
         
@@ -552,7 +555,8 @@
 
     <section class="hero">
         <div class="reveal">
-            <h1>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h1>
+            <h1>عقد وغرزة🧶</h1>
+            <h2>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h>
             <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئًا ولمسة فنية لحياتك.</p>
             <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
         </div>
@@ -560,7 +564,7 @@
 
     <section class="stats reveal">
         <div class="stat-item">
-            <i class="fa-solid fa-basket-shopping stat-icon"></i>
+            <i class="fa-solid fa-user stat-icon"></i>
             <h3>+100</h3>
             <p>عميل سعيد</p>
         </div>
@@ -570,7 +574,7 @@
             <p>عمل فني متميز</p>
         </div>
         <div class="stat-item">
-            <i class="fa-solid fa-scissors stat-icon"></i>
+            <i class="fa-solid fa-user stat-icon"></i>
             <h3>%100</h3>
             <p>شغل يدوي بحُب</p>
         </div>
