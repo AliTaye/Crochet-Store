@@ -128,6 +128,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            /* تم إضافة لون خلفية مؤقت في حال لم تحمل الصورة */
             background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('bgHero.jpg') center/cover no-repeat, var(--bg-color);
         }
         .hero h1 {
@@ -142,7 +143,7 @@
             color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: 700;
-        }
+        } 
         
         .hero p {
             font-size: 1.2rem;
@@ -411,6 +412,17 @@
             direction: rtl;
         }
         .lead-capture textarea { resize: vertical; }
+        
+        /* تنسيق الملاحظة الصغيرة الخاصة برقم الجوال */
+        .phone-hint {
+            display: block;
+            text-align: right;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
         .btn-dark {
             background-color: var(--text-color);
             color: var(--white);
@@ -544,7 +556,7 @@
         <div class="logo-container">
             <a href="#">
                 <!-- مكان (اللوجو)  -->
-                <img src="logo.jpeg" alt="شعار عِقد وغرزة" onerror="this.src='logo.jpeg'">
+                <img src="https://placehold.co/100x100/E7DBB3/6A4B3A?text=لوجو" alt="شعار عِقد وغرزة" onerror="this.src='logo.jpeg'">
             </a>
         </div>
         
@@ -564,7 +576,6 @@
     <section class="hero">
         <div class="reveal">
             <h1>عقد وغرزة🧶</h1>
-            <!-- هنا كان الخطأ الثاني: </h> بدلاً من </h2> وتم التعديل -->
             <h2>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h2> 
             <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئًا ولمسة فنية لحياتك.</p>
             <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
@@ -573,12 +584,12 @@
 
     <section class="stats reveal">
         <div class="stat-item">
-            <i class="fa-solid fa-face-smile stat-icon"></i>
+            <i class="fa-solid fa-face-smile stat-icon"></i> 
             <h3>+100</h3>
             <p>عميل سعيد</p>
         </div>
         <div class="stat-item">
-            <i class="fa-solid fa-star stat-icon"></i>
+            <i class="fa-solid fa-star stat-icon"></i> 
             <h3>+150</h3>
             <p>عمل فني متميز</p>
         </div>
@@ -716,10 +727,15 @@
     <section id="contact" class="lead-capture reveal">
         <h2 class="section-title">أرسل لنا رسالة واحصل على هدية 🎁</h2>
         <p>اترك بياناتك وسنتواصل معك على الواتساب لتقديم عروضنا الحصرية.</p>
-        <!-- تم إضافة الكود الخاص بالواتساب هنا -->
         <form id="contactForm" onsubmit="sendToWhatsApp(event)">
             <input type="text" id="senderName" placeholder="الاسم" required>
-            <input type="tel" id="senderPhone" placeholder="رقم الجوال (يفضل واتساب)" required>
+            
+            <!-- تم التعديل هنا لفرض صيغة معينة للرقم -->
+            <div>
+                <input type="tel" id="senderPhone" placeholder="رقم الجوال (مثال: 05XXXXXXXX)" pattern="^05[0-9]{8}$" title="يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام" required>
+                <small class="phone-hint">* يجب أن يبدأ الرقم بـ 05 ويتكون من 10 أرقام</small>
+            </div>
+            
             <textarea id="senderMessage" placeholder="رسالتك أو طلبك..." rows="3" required></textarea>
             <button type="submit" class="btn btn-dark">إرسال والحصول على الهدية!</button>
         </form>
@@ -781,7 +797,7 @@
 
         // دالة إرسال النموذج إلى الواتساب
         function sendToWhatsApp(event) {
-            event.preventDefault(); // لمنع تحديث الصفحة
+            event.preventDefault();
             
             var name = document.getElementById('senderName').value;
             var phone = document.getElementById('senderPhone').value;
@@ -789,13 +805,13 @@
             
             var myWhatsAppNumber = "966545065415"; 
             
-            var textMessage = "مرحباً عِقد وغرزة 🧶، لدي طلب/استفسار جديد:%0a%0a";
+            var textMessage = "مرحباً معك متجر عِقد وغرزة 🧶، هديتك هي خصم 20% لأول طلب من متجرنا🧶😍 قول ايش بخاطرك! ومالك إلا طيب❤️:%0a%0a";
             textMessage += "👤 الاسم: " + name + "%0a";
             textMessage += "📱 رقم الجوال: " + phone + "%0a";
             textMessage += "📝 الرسالة: " + message;
             
             var whatsappUrl = "https://wa.me/" + myWhatsAppNumber + "?text=" + textMessage;
-            window.open(whatsappUrl, '_blank'); // فتح الواتساب في نافذة جديدة
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
