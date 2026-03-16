@@ -128,7 +128,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('bgHero.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('bgHero.jpg') center/cover no-repeat, var(--bg-color);
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -136,11 +136,14 @@
             margin-bottom: 15px;
             font-weight: 700;
         }
+        
         .hero h2 {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: 700;
+        }
+        
         .hero p {
             font-size: 1.2rem;
             margin: 0 auto 35px;
@@ -366,7 +369,7 @@
         .about {
             padding: 100px 20px;
             text-align: center;
-            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('ourStory.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('ourStory.jpg') center/cover no-repeat, var(--bg-color);
             background-attachment: fixed;
             position: relative;
             overflow: hidden;
@@ -413,6 +416,11 @@
             color: var(--white);
             width: 100%;
             border: none;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
         }
         .btn-dark:hover { background-color: #2D1B13; }
 
@@ -556,7 +564,8 @@
     <section class="hero">
         <div class="reveal">
             <h1>عقد وغرزة🧶</h1>
-            <h2>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h>
+            <!-- هنا كان الخطأ الثاني: </h> بدلاً من </h2> وتم التعديل -->
+            <h2>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h2> 
             <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئًا ولمسة فنية لحياتك.</p>
             <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
         </div>
@@ -564,17 +573,17 @@
 
     <section class="stats reveal">
         <div class="stat-item">
-            <i class="fa-solid fa-user stat-icon"></i>
+            <i class="fa-solid fa-face-smile stat-icon"></i>
             <h3>+100</h3>
             <p>عميل سعيد</p>
         </div>
         <div class="stat-item">
-            <i class="fa-solid fa-user stat-icon"></i>
+            <i class="fa-solid fa-star stat-icon"></i>
             <h3>+150</h3>
             <p>عمل فني متميز</p>
         </div>
         <div class="stat-item">
-            <i class="fa-solid fa-user stat-icon"></i>
+            <i class="fa-solid fa-hands-holding-circle stat-icon"></i>
             <h3>%100</h3>
             <p>شغل يدوي بحُب</p>
         </div>
@@ -612,21 +621,21 @@
         <!-- 👇 🖼️ مكان تغيير صور معرض الأعمال 👇 -->
         <div class="gallery-grid">
             <div class="gallery-card reveal">
-                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+1" alt="توزيعات كروشيه" class="gallery-img">
+                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=توزيعات+كروشيه" alt="توزيعات كروشيه" class="gallery-img">
                 <div class="gallery-content">
                     <h3>توزيعات المناسبات السعيدة 🎁</h3>
                     <p>أضف لمسة مختلفة لمناسباتك.</p>
                 </div>
             </div>
             <div class="gallery-card reveal">
-                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+2" alt="أميجرومي" class="gallery-img">
+                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=دمى+أميجرومي" alt="أميجرومي" class="gallery-img">
                 <div class="gallery-content">
                     <h3>أصدقاء الصغار (أميجرومي) 🧸</h3>
                     <p>دمى آمنة ولطيفة لأطفالك.</p>
                 </div>
             </div>
             <div class="gallery-card reveal">
-                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+3" alt="حقائب كروشيه" class="gallery-img">
+                <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=حقائب+وسكارفات" alt="حقائب كروشيه" class="gallery-img">
                 <div class="gallery-content">
                     <h3>أناقة التفاصيل 🧣</h3>
                     <p>حقائب وسكارفات شتوية مميزة.</p>
@@ -707,10 +716,11 @@
     <section id="contact" class="lead-capture reveal">
         <h2 class="section-title">أرسل لنا رسالة واحصل على هدية 🎁</h2>
         <p>اترك بياناتك وسنتواصل معك على الواتساب لتقديم عروضنا الحصرية.</p>
-        <form action="#" method="POST">
-            <input type="text" placeholder="الاسم" required>
-            <input type="tel" placeholder="رقم الجوال (يفضل واتساب)" required>
-            <textarea placeholder="رسالتك أو طلبك..." rows="3" required></textarea>
+        <!-- تم إضافة الكود الخاص بالواتساب هنا -->
+        <form id="contactForm" onsubmit="sendToWhatsApp(event)">
+            <input type="text" id="senderName" placeholder="الاسم" required>
+            <input type="tel" id="senderPhone" placeholder="رقم الجوال (يفضل واتساب)" required>
+            <textarea id="senderMessage" placeholder="رسالتك أو طلبك..." rows="3" required></textarea>
             <button type="submit" class="btn btn-dark">إرسال والحصول على الهدية!</button>
         </form>
     </section>
@@ -768,6 +778,25 @@
         slidePrev.addEventListener('click', () => {
             sliderTrack.scrollBy({ left: 320, behavior: 'smooth' });
         });
+
+        // دالة إرسال النموذج إلى الواتساب
+        function sendToWhatsApp(event) {
+            event.preventDefault(); // لمنع تحديث الصفحة
+            
+            var name = document.getElementById('senderName').value;
+            var phone = document.getElementById('senderPhone').value;
+            var message = document.getElementById('senderMessage').value;
+            
+            var myWhatsAppNumber = "966545065415"; 
+            
+            var textMessage = "مرحباً عِقد وغرزة 🧶، لدي طلب/استفسار جديد:%0a%0a";
+            textMessage += "👤 الاسم: " + name + "%0a";
+            textMessage += "📱 رقم الجوال: " + phone + "%0a";
+            textMessage += "📝 الرسالة: " + message;
+            
+            var whatsappUrl = "https://wa.me/" + myWhatsAppNumber + "?text=" + textMessage;
+            window.open(whatsappUrl, '_blank'); // فتح الواتساب في نافذة جديدة
+        }
     </script>
 </body>
 </html>
