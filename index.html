@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عِقد وغرزة 🧶</title>
-    <!-- مكتبة الأيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
         :root {
-            --primary-color: #6A4B3A; /* تم تغميق اللون البني ليكون أكثر فخامة ووضوحاً */
-            --secondary-color: #D49A6A; /* درجة متناسقة مع البني الغامق */
-            --bg-color: #FEFAE0; /* خلفية سكرية/بيج */
+            --primary-color: #6A4B3A;
+            --secondary-color: #D49A6A;
+            --bg-color: #FEFAE0;
             --text-color: #3E2723;
             --white: #FFFFFF;
-            --navbar-bg: var(--primary-color); /* تم تغيير لون الناف بار إلى البني الغامق */
+            --navbar-bg: var(--primary-color);
+            --logo-bg: #E7DBB3;
         }
 
-        /* تفعيل التمرير السلس */
         html {
             scroll-behavior: smooth;
         }
@@ -31,12 +30,13 @@
         }
 
         body {
-            background-color: var(--prime-color);
+            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* شريط التنقل (Navbar) */
+        /* Navbar */
         header {
             background-color: var(--navbar-bg);
             padding: 10px 50px;
@@ -48,53 +48,63 @@
             width: 100%;
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
         }
 
         .logo-container {
-            /* إضافة خلفية فاتحة للشعار ليبرز على الناف بار الغامق */
-            background-color: var(--bg-color);
-            padding: 5px 15px;
-            border-radius: 12px;
+            background-color: var(--logo-bg);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-        }
-
-        .logo-container img {
-            height: 60px; /* تم تعديل الحجم ليتناسب مع الإطار الجديد */
-            max-width: 150px;
-            object-fit: contain;
+            justify-content: center;
+            overflow: hidden;
+            padding: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
         }
 
-        .logo-container img:hover {
-            transform: scale(1.05);
+        .logo-container:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .nav-links {
             display: flex;
             gap: 15px;
             list-style: none;
+            transition: 0.3s ease-in-out;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--bg-color); /* لون الروابط فاتح ليناسب الناف بار الغامق */
+            color: var(--bg-color);
             font-weight: 600;
             font-size: 1.05rem;
             padding: 8px 18px;
-            border-radius: 25px; /* شكل كبسولة ناعم */
+            border-radius: 25px;
             transition: all 0.3s ease;
-            background-color: transparent;
         }
 
         .nav-links a:hover {
-            background-color: rgba(254, 250, 224, 0.15); /* خلفية شفافة فاتحة عند التمرير */
+            background-color: rgba(254, 250, 224, 0.15);
             color: var(--white);
-            transform: translateY(-2px); /* ارتفاع بسيط للأعلى */
         }
 
-        /* حركات الظهور (Animations) */
+        /* Burger Menu Icon */
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Reveal Animations */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -108,30 +118,24 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 100px 20px 20px;
-            min-height: 85vh; /* تم زيادة طول السكشن ليأخذ 85% من الشاشة */
+            padding: 120px 20px 40px;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--bg-color);
-            background-image: linear-gradient(rgba(254, 250, 224, 0.75), rgba(254, 250, 224, 0.95)), url('bgHero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('https://placehold.co/1920x1080/FEFAE0/6A4B3A?text=Background') center/cover no-repeat;
         }
         .hero h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: 700;
         }
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 35px;
+            font-size: 1.2rem;
+            margin: 0 auto 35px; /* تم إضافة auto هنا لضمان تمركز النص في المنتصف دائماً */
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
         .btn {
             background-color: var(--primary-color);
@@ -142,9 +146,9 @@
             font-weight: bold;
             font-size: 1.1rem;
             transition: 0.3s;
+            display: inline-block;
             border: none;
             cursor: pointer;
-            display: inline-block;
         }
         .btn:hover {
             background-color: #50372A;
@@ -152,7 +156,7 @@
             box-shadow: 0 6px 15px rgba(106, 75, 58, 0.3);
         }
 
-        /* Stats Section (قسم الأرقام) */
+        /* Stats Section */
         .stats {
             padding: 60px 20px;
             background-color: var(--primary-color);
@@ -179,10 +183,6 @@
             color: var(--bg-color);
             font-weight: 700;
         }
-        .stat-item p {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
 
         /* Features Section */
         .features {
@@ -191,7 +191,7 @@
             max-width: 1000px;
             margin: auto;
         }
-        .features h2 {
+        .section-title {
             font-size: 2.2rem;
             margin-bottom: 40px;
             color: var(--primary-color);
@@ -221,16 +221,10 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
         .feature-icon {
             font-size: 2.2rem;
             color: var(--primary-color);
-        }
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-weight: 600;
         }
 
         /* Gallery Section */
@@ -238,12 +232,6 @@
             padding: 80px 20px;
             background-color: var(--white);
             text-align: center;
-        }
-        .gallery h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            font-weight: 700;
         }
         .gallery-grid {
             display: grid;
@@ -270,48 +258,50 @@
         .gallery-content {
             padding: 20px;
         }
-        .gallery-content h3 {
-            color: var(--text-color);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
 
-        /* Testimonials Section (آراء العملاء) */
+        /* Testimonials Slider Section */
         .testimonials {
             padding: 80px 20px;
             text-align: center;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
+            position: relative;
         }
-        .testimonials h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            font-weight: 700;
+        .slider-container {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
-        .testimo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .testimo-slider {
+            display: flex;
             gap: 20px;
-            align-items: stretch; /* هذا يجعل الكروت تتمدد لتكون بنفس الارتفاع */
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+            scrollbar-width: none; /* Firefox */
+        }
+        .testimo-slider::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
         }
         .testimo-card {
             background-color: var(--white);
-            padding: 25px;
+            padding: 30px 25px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             text-align: right;
-            position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* هذا يدفع التقييم والاسم لأسفل الكرت دائماً */
-            height: 100%;
+            justify-content: space-between;
+            min-width: calc(33.333% - 14px); /* Show 3 cards on desktop */
+            flex-shrink: 0;
+            scroll-snap-align: center;
         }
         .quote-icon {
             color: var(--secondary-color);
             font-size: 1.5rem;
             opacity: 0.5;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .client-info {
             margin-top: 20px;
@@ -325,97 +315,90 @@
             color: #FFD700;
             margin-top: 5px;
         }
+        .slider-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .slider-btn:hover { background-color: #50372A; }
+        .next-btn { left: -20px; }
+        .prev-btn { right: -20px; }
 
         /* About Section */
         .about {
             padding: 100px 20px;
             text-align: center;
-            background-color: var(--white);
+            /* تمت إضافة الصورة كخلفية مع طبقة لونية فاتحة لضمان وضوح النص، وتأثير ثابت (fixed) لجمالية أكثر */
+            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('image_9bde5b.jpg') center/cover no-repeat;
+            background-attachment: fixed;
             position: relative;
-            overflow: hidden; /* لمنع الأشكال من الخروج عن الإطار */
+            overflow: hidden;
         }
-        /* الأشكال الجمالية (الباترنز) في سكشن قصتنا */
         .pattern-bg {
             position: absolute;
             color: var(--primary-color);
-            opacity: 0.04; /* شفافية عالية جداً حتى لا تزعج القراءة */
+            opacity: 0.04;
             z-index: 0;
         }
-        .pattern-1 {
-            top: -30px;
-            right: -40px;
-            font-size: 250px;
-            transform: rotate(15deg);
-        }
-        .pattern-2 {
-            bottom: -40px;
-            left: -30px;
-            font-size: 200px;
-            transform: rotate(-20deg);
-        }
+        .pattern-1 { top: -30px; right: -40px; font-size: 250px; transform: rotate(15deg); }
+        .pattern-2 { bottom: -40px; left: -30px; font-size: 200px; transform: rotate(-20deg); }
         .about-content {
             max-width: 800px;
             margin: auto;
             font-size: 1.2rem;
             line-height: 1.8;
             position: relative;
-            z-index: 1; /* لإبقاء النص فوق الأشكال الجمالية */
-        }
-        .about h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-weight: 700;
+            z-index: 1;
         }
 
-        /* Lead Capture Section */
+        /* Lead Capture Section (Gradient applied) */
         .lead-capture {
-            background-color: var(--primary-color);
+            /* تدرج لوني ناعم وجميل */
+            background: linear-gradient(135deg, #6A4B3A 0%, #9c6c51 50%, #50372A 100%);
             color: var(--white);
             text-align: center;
             padding: 80px 20px;
         }
-        .lead-capture h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .lead-capture p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
         .lead-capture form {
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 15px;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 25px auto 0;
         }
         .lead-capture input, .lead-capture textarea {
             padding: 15px 20px;
             width: 100%;
-            border-radius: 15px; /* توحيد الحواف لجميع الحقول */
+            border-radius: 15px;
             border: none;
             outline: none;
-            font-family: 'IBM Plex Sans Arabic', sans-serif;
             font-size: 1rem;
-            text-align: right; /* إجبار النص على البدء من اليمين */
-            direction: rtl; /* حل مشكلة حقل رقم الجوال */
+            text-align: right;
+            direction: rtl;
         }
-        .lead-capture textarea {
-            resize: vertical;
-        }
+        .lead-capture textarea { resize: vertical; }
         .btn-dark {
             background-color: var(--text-color);
             color: var(--white);
             width: 100%;
         }
-        .btn-dark:hover {
-            background-color: #2D1B13;
-        }
+        .btn-dark:hover { background-color: #2D1B13; }
 
-        /* Footer & Social Media */
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -429,12 +412,11 @@
         .copyright-text {
             font-size: 0.85rem;
             opacity: 0.7;
-            margin-top: -15px; /* لتقريبها من الجملة التي فوقها */
+            margin-top: -15px;
         }
         .social-icons {
             display: flex;
             gap: 15px;
-            justify-content: center;
         }
         .social-icons a {
             display: flex;
@@ -449,7 +431,6 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        /* تأثيرات حركية ولونية جميلة عند تمرير الماوس على مواقع التواصل */
         .social-icons a:hover {
             transform: translateY(-5px);
             color: var(--white);
@@ -459,7 +440,7 @@
         .social-icons a.tiktok:hover { background: #000000; text-shadow: 2px 2px 0 #00f2fe, -2px -2px 0 #fe0979;}
         .social-icons a.whatsapp:hover { background: #25d366; color: #FFF; }
 
-        /* زر الواتساب العائم */
+        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -484,25 +465,58 @@
             transform: scale(1.1);
         }
 
-        /* استجابة الشاشات الصغيرة (Mobile Responsiveness) */
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .testimo-card { min-width: calc(50% - 10px); } /* Show 2 cards on tablet */
+        }
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
-            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            
+            /* Burger Menu Styling */
+            .nav-links {
+                position: absolute;
+                top: 80px; /* Below navbar */
+                right: -100%; /* Hidden by default */
+                flex-direction: column;
+                background-color: var(--navbar-bg);
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                right: 0; /* Slide in */
+            }
+            .nav-links a {
+                display: block;
+                padding: 15px;
+                font-size: 1.2rem;
+            }
+
             .hero h1 { font-size: 2.5rem; }
+            .testimo-card { min-width: 100%; } /* Show 1 card on mobile */
+            .slider-btn { display: none; } /* Hide buttons on mobile, rely on swipe */
             .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- شريط التنقل مع اللوجو -->
     <header>
         <div class="logo-container">
             <a href="#">
-                <img src="logo.jpeg" alt="شعار عِقد وغرزة">
+                <!-- تأكد من وضع مسار الشعار الصحيح هنا -->
+                <img src="logo.jpeg" alt="شعار عِقد وغرزة" onerror="this.src='https://placehold.co/100x100/E7DBB3/6A4B3A?text=شعار'">
             </a>
         </div>
-        <ul class="nav-links">
+        
+        <!-- زر القائمة للجوال -->
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
             <li><a href="#features">مميزاتنا</a></li>
             <li><a href="#gallery">أعمالنا</a></li>
             <li><a href="#testimonials">آراء العملاء</a></li>
@@ -519,7 +533,6 @@
         </div>
     </section>
 
-    <!-- قسم الأرقام الإحصائية الجديد -->
     <section class="stats reveal">
         <div class="stat-item">
             <i class="fa-solid fa-basket-shopping stat-icon"></i>
@@ -539,7 +552,7 @@
     </section>
 
     <section id="features" class="features">
-        <h2 class="reveal">لماذا نحن؟</h2>
+        <h2 class="section-title reveal">لماذا نحن؟</h2>
         <div class="features-grid">
             <div class="feature-card reveal">
                 <div class="icon-wrapper">
@@ -566,7 +579,7 @@
     </section>
 
     <section id="gallery" class="gallery">
-        <h2 class="reveal">أبرز إبداعاتنا</h2>
+        <h2 class="section-title reveal">أبرز إبداعاتنا</h2>
         <div class="gallery-grid">
             <div class="gallery-card reveal">
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+1" alt="توزيعات كروشيه" class="gallery-img">
@@ -592,55 +605,85 @@
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
-        <h2 class="reveal">ماذا يقول عملاؤنا؟</h2>
-        <div class="testimo-grid">
-            <div class="testimo-card reveal">
-                <div>
-                    <i class="fa-solid fa-quote-right quote-icon"></i>
-                    <p>"القطعة وصلتني أجمممل بكثير من الصور! دقة في الشغل ونظافة في الخيوط تفتح النفس، يعطيكم ألف عافية."</p>
+    <section id="testimonials" class="testimonials reveal">
+        <h2 class="section-title">ماذا يقول عملاؤنا؟</h2>
+        <div class="slider-container">
+            <button class="slider-btn prev-btn" id="slide-prev"><i class="fa-solid fa-chevron-right"></i></button>
+            
+            <div class="testimo-slider" id="slider-track">
+                <!-- تعليق 1 -->
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"القطعة وصلتني أجمممل بكثير من الصور! دقة في الشغل ونظافة في الخيوط تفتح النفس، يعطيكم ألف عافية."</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- سارة أحمد</span>
+                    </div>
                 </div>
-                <div class="client-info">
-                    <div class="stars">★★★★★</div>
-                    <span class="client-name">- سارة أحمد</span>
+                <!-- تعليق 2 -->
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"طلبت دمية لبنتي ومقاساتها وألوانها طلعت بالضبط مثل ما طلبت، التعامل راقي جداً والتوصيل سريع. تجربة ممتازة."</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- نورة الخالد</span>
+                    </div>
+                </div>
+                <!-- تعليق 3 -->
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"السكارف الشتوي يدفي وشكله فخم، الخيوط جودتها عالية وما تسبب أي حساسية. شكراً لإبداعكم."</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- محمد عبدالله</span>
+                    </div>
+                </div>
+                <!-- تعليق 4 (يظهر عند السحب) -->
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"أفضل متجر تعاملت معاه! التغليف لوحده حكاية ويصلح يكون هدية جاهزة، التوزيعات كانت رائعة والكل سألني عنها."</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- ريم الفهد</span>
+                    </div>
+                </div>
+                 <!-- تعليق 5 (يظهر عند السحب) -->
+                 <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"شغلكم يجنن ومتقن جداً، طلبت خداديات للكنب وغيرت شكل الصالة بالكامل. استمروا يا مبدعين!"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- أم خالد</span>
+                    </div>
                 </div>
             </div>
-            <div class="testimo-card reveal">
-                <div>
-                    <i class="fa-solid fa-quote-right quote-icon"></i>
-                    <p>"طلبت دمية لبنتي ومقاساتها وألوانها طلعت بالضبط مثل ما طلبت، التعامل راقي جداً والتوصيل سريع. تجربة ممتازة وأكيد راح أكررها قريباً."</p>
-                </div>
-                <div class="client-info">
-                    <div class="stars">★★★★★</div>
-                    <span class="client-name">- نورة الخالد</span>
-                </div>
-            </div>
-            <div class="testimo-card reveal">
-                <div>
-                    <i class="fa-solid fa-quote-right quote-icon"></i>
-                    <p>"السكارف الشتوي يدفي وشكله فخم."</p>
-                </div>
-                <div class="client-info">
-                    <div class="stars">★★★★★</div>
-                    <span class="client-name">- محمد عبدالله</span>
-                </div>
-            </div>
+
+            <button class="slider-btn next-btn" id="slide-next"><i class="fa-solid fa-chevron-left"></i></button>
         </div>
     </section>
 
     <section id="about" class="about">
-        <!-- أشكال جمالية خلفية (باترنز) -->
         <i class="fa-solid fa-yarn pattern-bg pattern-1"></i>
         <i class="fa-solid fa-mitten pattern-bg pattern-2"></i>
         
         <div class="about-content reveal">
-            <h2>قصتنا</h2>
+            <h2 class="section-title">قصتنا</h2>
             <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءًا من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج.</p>
         </div>
     </section>
 
     <section id="contact" class="lead-capture reveal">
-        <h2>أرسل لنا رسالة واحصل على هدية 🎁</h2>
+        <h2 class="section-title" style="color: white;">أرسل لنا رسالة واحصل على هدية 🎁</h2>
         <p>اترك بياناتك وسنتواصل معك على الواتساب لتقديم عروضنا الحصرية.</p>
         <form action="#" method="POST">
             <input type="text" placeholder="الاسم" required>
@@ -658,15 +701,14 @@
         </div>
         <p>صُنع بحب في السعودية ❤️</p>
         <p class="copyright-text">جميع الحقوق محفوظة &copy; 2026</p>
-        <!-- أيقونات مواقع التواصل -->
     </footer>
 
     <a href="https://wa.me/966545065415" class="whatsapp-float" target="_blank" title="تواصل معنا على واتساب">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- سكريبت لتفعيل حركات الظهور عند النزول بالصفحة (Scroll Animations) -->
     <script>
+        // 1. حركة الظهور عند النزول (Scroll Reveal)
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -679,8 +721,36 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // لتشغيل الحركة للعناصر الظاهرة في البداية
-    </script>
+        reveal();
 
+        // 2. تفعيل قائمة الجوال (Mobile Menu Toggle)
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // إغلاق القائمة عند النقر على أي رابط داخلها
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 3. أزرار شريط التمرير للتعليقات (Testimonials Slider)
+        const sliderTrack = document.getElementById('slider-track');
+        const slideNext = document.getElementById('slide-next');
+        const slidePrev = document.getElementById('slide-prev');
+
+        // بما أن الموقع باللغة العربية (RTL)، فإن التمرير لليسار (Next) يعني قيمة سالبة
+        slideNext.addEventListener('click', () => {
+            sliderTrack.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+
+        slidePrev.addEventListener('click', () => {
+            sliderTrack.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
