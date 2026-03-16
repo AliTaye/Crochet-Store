@@ -37,7 +37,7 @@
 
         /* شريط التنقل (Navbar) */
         header {
-            background-color: rgba(254, 250, 224, 0.85);
+            background-color: rgba(231, 219, 179, 0.85);
             padding: 10px 50px;
             display: flex;
             justify-content: space-between;
@@ -54,7 +54,6 @@
             height: 70px; /* تم تكبير الشعار ليكون أوضح */
             max-width: 150px;
             object-fit: contain;
-            mix-blend-mode: darken; /* هذه الخاصية السحرية تدمج خلفية الصورة مع شريط التنقل لتبدو شفافة */
             transition: transform 0.3s ease;
         }
 
@@ -70,7 +69,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--primary-color);
             font-weight: 600;
             font-size: 1.05rem;
             position: relative;
@@ -188,7 +187,7 @@
         }
         .feature-icon {
             font-size: 2.2rem;
-            color: var(--secondary-color);
+            color: var(--primary-color);
         }
         .feature-card h3 {
             color: var(--primary-color);
@@ -384,7 +383,7 @@
         }
         .social-icons a.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .social-icons a.tiktok:hover { background: #000000; text-shadow: 2px 2px 0 #00f2fe, -2px -2px 0 #fe0979;}
-        .social-icons a.snapchat:hover { background: #FFFC00; color: #000; }
+        .social-icons a.whatsapp:hover { background: #25d366; color: #FFF; }
 
         /* زر الواتساب العائم */
         .whatsapp-float {
@@ -438,8 +437,8 @@
 
     <section class="hero">
         <div class="reveal">
-            <h1>من خيوطنا ننسُج لك لحظات دافئة❤️</h1>
-            <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئاً ولمسة فنية على يومك.</p>
+            <h1>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h1>
+            <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئًا ولمسة فنية لحياتك.</p>
             <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
         </div>
     </section>
@@ -537,7 +536,7 @@
     <section id="about" class="about">
         <div class="about-content reveal">
             <h2>قصتنا</h2>
-            <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءاً من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج.</p>
+            <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءًا من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج.</p>
         </div>
     </section>
 
@@ -551,14 +550,14 @@
     </section>
 
     <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/crochet.store.s/" class="instagram" target="_blank" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@crochet.store.s?_t=zs-8tm1fh0j52m&_r=1" class="tiktok" target="_blank" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/966545065415" class="whatsapp" target="_blank" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
         <p>صُنع بحب في السعودية ❤️</p>
         <p class="copyright-text">جميع الحقوق محفوظة &copy; 2026</p>
-        <!-- أيقونات مواقع التواصل (ضع روابط حساباتك بدلاً من علامة #) -->
-        <div class="social-icons">
-            <a href="#" class="instagram" target="_blank" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="tiktok" target="_blank" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="snapchat" target="_blank" title="سناب شات"><i class="fa-brands fa-snapchat"></i></a>
-        </div>
+        <!-- أيقونات مواقع التواصل -->
     </footer>
 
     <a href="https://wa.me/966545065415" class="whatsapp-float" target="_blank" title="تواصل معنا على واتساب">
