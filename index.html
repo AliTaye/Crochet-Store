@@ -114,7 +114,7 @@
             text-align: center;
             padding: 150px 20px 100px;
             background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), 
-                        url('https://images.unsplash.com/photo-1606505705663-1498c47402aa?auto=format&fit=crop&w=1200&q=80') center/cover;
+                        url('image_01507e.jpg') center/cover;
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -145,6 +145,27 @@
             background-color: #50372A;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(106, 75, 58, 0.3);
+        }
+
+        /* Stats Section (قسم الأرقام) */
+        .stats {
+            padding: 60px 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        .stat-item p {
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         /* Features Section */
@@ -319,23 +340,29 @@
         }
         .lead-capture form {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
         }
-        .lead-capture input {
+        .lead-capture input, .lead-capture textarea {
             padding: 15px 20px;
-            width: 350px;
-            max-width: 100%;
-            border-radius: 25px;
+            width: 100%;
+            border-radius: 20px;
             border: none;
             outline: none;
             font-family: 'Tajawal', sans-serif;
             font-size: 1rem;
         }
+        .lead-capture textarea {
+            resize: vertical;
+            border-radius: 15px;
+        }
         .btn-dark {
             background-color: var(--text-color);
             color: var(--white);
+            width: 100%;
         }
         .btn-dark:hover {
             background-color: #2D1B13;
@@ -443,6 +470,22 @@
         </div>
     </section>
 
+    <!-- قسم الأرقام الإحصائية الجديد -->
+    <section class="stats reveal">
+        <div class="stat-item">
+            <h3>+100</h3>
+            <p>عميل سعيد</p>
+        </div>
+        <div class="stat-item">
+            <h3>+150</h3>
+            <p>عمل فني متميز</p>
+        </div>
+        <div class="stat-item">
+            <h3>%100</h3>
+            <p>شغل يدوي بحُب</p>
+        </div>
+    </section>
+
     <section id="features" class="features">
         <h2 class="reveal">لماذا نحن؟</h2>
         <div class="features-grid">
@@ -541,11 +584,13 @@
     </section>
 
     <section id="contact" class="lead-capture reveal">
-        <h2>كُن أول من يرى إبداعاتنا القادمة</h2>
-        <p>سجل بريدك الإلكتروني الآن، واحصل على خصم 10% على طلبك الأول فور إطلاق المتجر.</p>
+        <h2>أرسل لنا رسالة واحصل على هدية 🎁</h2>
+        <p>اترك بياناتك وسنتواصل معك على الواتساب لتقديم عروضنا الحصرية.</p>
         <form action="#" method="POST">
-            <input type="email" placeholder="أدخل بريدك الإلكتروني هنا..." required>
-            <button type="submit" class="btn btn-dark">أرسل لي الخصم!</button>
+            <input type="text" placeholder="الاسم" required>
+            <input type="tel" placeholder="رقم الجوال (يفضل واتساب)" required>
+            <textarea placeholder="رسالتك أو طلبك..." rows="3" required></textarea>
+            <button type="submit" class="btn btn-dark">إرسال والحصول على الهدية!</button>
         </form>
     </section>
 
