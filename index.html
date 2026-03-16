@@ -7,7 +7,7 @@
     <!-- مكتبة الأيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
         :root {
             --primary-color: #6A4B3A; /* تم تغميق اللون البني ليكون أكثر فخامة ووضوحاً */
@@ -27,7 +27,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
         }
 
         body {
@@ -114,13 +114,17 @@
         .hero {
             text-align: center;
             padding: 150px 20px 100px;
-            background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), 
-                        url('b1b6b2e498c40cfc67d65877cb10e603.jpg') center/cover;
+            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(254, 250, 224, 0.75), rgba(254, 250, 224, 0.95)), url('image_01507e.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .hero h1 {
             font-size: 3.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
+            font-weight: 700;
         }
         .hero p {
             font-size: 1.2rem;
@@ -163,6 +167,7 @@
             font-size: 3rem;
             margin-bottom: 5px;
             color: var(--secondary-color);
+            font-weight: 700;
         }
         .stat-item p {
             font-size: 1.2rem;
@@ -180,6 +185,7 @@
             font-size: 2.2rem;
             margin-bottom: 40px;
             color: var(--primary-color);
+            font-weight: 700;
         }
         .features-grid {
             display: grid;
@@ -214,6 +220,7 @@
         .feature-card h3 {
             color: var(--primary-color);
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         /* Gallery Section */
@@ -226,6 +233,7 @@
             font-size: 2.2rem;
             margin-bottom: 40px;
             color: var(--primary-color);
+            font-weight: 700;
         }
         .gallery-grid {
             display: grid;
@@ -255,6 +263,7 @@
         .gallery-content h3 {
             color: var(--text-color);
             margin-bottom: 5px;
+            font-weight: 600;
         }
 
         /* Testimonials Section (آراء العملاء) */
@@ -268,6 +277,7 @@
             font-size: 2.2rem;
             margin-bottom: 40px;
             color: var(--primary-color);
+            font-weight: 700;
         }
         .testimo-grid {
             display: grid;
@@ -322,6 +332,7 @@
             font-size: 2.2rem;
             margin-bottom: 20px;
             color: var(--primary-color);
+            font-weight: 700;
         }
 
         /* Lead Capture Section */
@@ -334,6 +345,7 @@
         .lead-capture h2 {
             font-size: 2.2rem;
             margin-bottom: 15px;
+            font-weight: 700;
         }
         .lead-capture p {
             font-size: 1.1rem;
@@ -353,7 +365,7 @@
             border-radius: 15px; /* توحيد الحواف لجميع الحقول */
             border: none;
             outline: none;
-            font-family: 'Cairo', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
             font-size: 1rem;
             text-align: right; /* إجبار النص على البدء من اليمين */
             direction: rtl; /* حل مشكلة حقل رقم الجوال */
