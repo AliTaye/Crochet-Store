@@ -14,12 +14,12 @@
             --bg-color: #FEFAE0;
             --text-color: #3E2723;
             --white: #FFFFFF;
-            --navbar-bg: var(--primary-color);
             --logo-bg: #E7DBB3;
         }
 
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%; /* لمنع أجهزة الجوال من تكبير الخط تلقائياً */
         }
 
         * {
@@ -38,7 +38,7 @@
 
         /* Navbar */
         header {
-            background-color: var(--navbar-bg);
+            background-color: var(--primary-color);
             padding: 10px 50px;
             display: flex;
             justify-content: space-between;
@@ -135,7 +135,7 @@
         }
         .hero p {
             font-size: 1.2rem;
-            margin: 0 auto 35px; /* تم إضافة auto هنا لضمان تمركز النص في المنتصف دائماً */
+            margin: 0 auto 35px;
             max-width: 600px;
         }
         .btn {
@@ -298,6 +298,13 @@
             flex-shrink: 0;
             scroll-snap-align: center;
         }
+        /* إجبار النص على الالتفاف وتحديد حجم خط ثابت */
+        .testimo-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            white-space: normal;
+        }
         .quote-icon {
             color: var(--secondary-color);
             font-size: 1.5rem;
@@ -360,7 +367,6 @@
 
         /* Lead Capture Section (Gradient applied) */
         .lead-capture {
-            /* تدرج لوني ناعم وجميل */
             background: linear-gradient(135deg, #6A4B3A 0%, #9c6c51 50%, #50372A 100%);
             color: var(--white);
             text-align: center;
@@ -463,7 +469,6 @@
             .testimo-card { min-width: calc(50% - 10px); } /* Show 2 cards on tablet */
         }
         @media (max-width: 768px) {
-            /* تصغير حجم شريط التنقل (الناف بار) في الجوال */
             header { padding: 8px 15px; }
             .logo-container { width: 45px; height: 45px; padding: 5px; }
             .menu-toggle { display: block; font-size: 1.5rem; }
@@ -491,9 +496,17 @@
 
             .hero h1 { font-size: 2.5rem; }
             
-            /* تحسين عرض التعليقات في الجوال (تظهر جزء من الكرت التالي ليعرف المستخدم أنه يمكنه السحب) */
-            .testimo-card { min-width: 85%; } 
-            .testimo-slider { padding: 10px 5vw; gap: 15px; }
+            /* حل مشكلة تمدد الكروت في الجوال باستخدام مقاس الشاشة (vw) بدل النسبة المئوية */
+            .testimo-card { 
+                min-width: 80vw; 
+                width: 80vw;
+                flex: 0 0 80vw;
+                padding: 25px 20px;
+            } 
+            .testimo-slider { 
+                padding: 10px 5vw; 
+                gap: 15px; 
+            }
             
             .slider-btn { display: none; } /* Hide buttons on mobile, rely on swipe */
             .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
