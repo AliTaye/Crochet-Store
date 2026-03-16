@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 👇 هذا هو السطر السحري اللي يلون شريط الجوال (الساعة والبطارية) باللون البني 👇 -->
+    <meta name="theme-color" content="#6A4B3A">
+    
     <title>عِقد وغرزة 🧶</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -20,6 +23,8 @@
         html {
             scroll-behavior: smooth;
             -webkit-text-size-adjust: 100%; /* لمنع أجهزة الجوال من تكبير الخط تلقائياً */
+            /* جعل لون مساحة السحب الزائدة (التي تظهر خارج الموقع) باللون البني */
+            background-color: var(--primary-color);
         }
 
         * {
@@ -30,10 +35,11 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-color); /* إرجاع لون الموقع الداخلي للبيج الأنيق */
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* Navbar */
@@ -124,7 +130,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* 👇 🖼️ مكان تغيير صورة خلفية القسم الأول (البانر) 👇 */
             background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('https://placehold.co/1920x1080/FEFAE0/6A4B3A?text=Background') center/cover no-repeat;
         }
         .hero h1 {
@@ -227,6 +232,10 @@
             font-size: 2.2rem;
             color: var(--primary-color);
         }
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
 
         /* Gallery Section */
         .gallery {
@@ -258,6 +267,11 @@
         }
         .gallery-content {
             padding: 20px;
+        }
+        .gallery-content h3 {
+            color: var(--text-color);
+            margin-bottom: 5px;
+            font-weight: 600;
         }
 
         /* Testimonials Slider Section */
@@ -298,7 +312,6 @@
             flex-shrink: 0;
             scroll-snap-align: center;
         }
-        /* إجبار النص على الالتفاف وتحديد حجم خط ثابت */
         .testimo-card p {
             font-size: 1.05rem;
             line-height: 1.8;
@@ -350,7 +363,6 @@
         .about {
             padding: 100px 20px;
             text-align: center;
-            /* 👇 🖼️ مكان تغيير صورة خلفية قسم "قصتنا" 👇 */
             background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('image_9bde5b.jpg') center/cover no-repeat;
             background-attachment: fixed;
             position: relative;
@@ -365,12 +377,15 @@
             z-index: 1;
         }
 
-        /* Lead Capture Section (Gradient applied) */
+        /* Lead Capture Section */
         .lead-capture {
             background: linear-gradient(135deg, #6A4B3A 0%, #9c6c51 50%, #50372A 100%);
             color: var(--white);
             text-align: center;
             padding: 80px 20px;
+        }
+        .lead-capture h2 {
+            color: var(--white);
         }
         .lead-capture form {
             display: flex;
@@ -394,6 +409,7 @@
             background-color: var(--text-color);
             color: var(--white);
             width: 100%;
+            border: none;
         }
         .btn-dark:hover { background-color: #2D1B13; }
 
@@ -466,27 +482,26 @@
 
         /* Mobile Responsiveness */
         @media (max-width: 900px) {
-            .testimo-card { min-width: calc(50% - 10px); } /* Show 2 cards on tablet */
+            .testimo-card { min-width: calc(50% - 10px); }
         }
         @media (max-width: 768px) {
             header { padding: 8px 15px; }
             .logo-container { width: 45px; height: 45px; padding: 5px; }
             .menu-toggle { display: block; font-size: 1.5rem; }
             
-            /* Burger Menu Styling */
             .nav-links {
                 position: absolute;
-                top: 80px; /* Below navbar */
-                right: -100%; /* Hidden by default */
+                top: 80px; 
+                right: -100%; 
                 flex-direction: column;
-                background-color: var(--navbar-bg);
+                background-color: var(--primary-color);
                 width: 100%;
                 text-align: center;
                 padding: 20px 0;
                 box-shadow: 0 10px 15px rgba(0,0,0,0.1);
             }
             .nav-links.active {
-                right: 0; /* Slide in */
+                right: 0; 
             }
             .nav-links a {
                 display: block;
@@ -496,7 +511,6 @@
 
             .hero h1 { font-size: 2.5rem; }
             
-            /* حل مشكلة تمدد الكروت في الجوال باستخدام مقاس الشاشة (vw) بدل النسبة المئوية */
             .testimo-card { 
                 min-width: 80vw; 
                 width: 80vw;
@@ -508,7 +522,7 @@
                 gap: 15px; 
             }
             
-            .slider-btn { display: none; } /* Hide buttons on mobile, rely on swipe */
+            .slider-btn { display: none; }
             .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
         }
     </style>
@@ -523,7 +537,6 @@
             </a>
         </div>
         
-        <!-- زر القائمة للجوال -->
         <div class="menu-toggle" id="mobile-menu">
             <i class="fa-solid fa-bars"></i>
         </div>
@@ -595,7 +608,6 @@
         <!-- 👇 🖼️ مكان تغيير صور معرض الأعمال 👇 -->
         <div class="gallery-grid">
             <div class="gallery-card reveal">
-                <!-- الصورة الأولى -->
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+1" alt="توزيعات كروشيه" class="gallery-img">
                 <div class="gallery-content">
                     <h3>توزيعات المناسبات السعيدة 🎁</h3>
@@ -603,7 +615,6 @@
                 </div>
             </div>
             <div class="gallery-card reveal">
-                <!-- الصورة الثانية -->
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+2" alt="أميجرومي" class="gallery-img">
                 <div class="gallery-content">
                     <h3>أصدقاء الصغار (أميجرومي) 🧸</h3>
@@ -611,7 +622,6 @@
                 </div>
             </div>
             <div class="gallery-card reveal">
-                <!-- الصورة الثالثة -->
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=صورة+المنتج+3" alt="حقائب كروشيه" class="gallery-img">
                 <div class="gallery-content">
                     <h3>أناقة التفاصيل 🧣</h3>
@@ -627,7 +637,6 @@
             <button class="slider-btn prev-btn" id="slide-prev"><i class="fa-solid fa-chevron-right"></i></button>
             
             <div class="testimo-slider" id="slider-track">
-                <!-- تعليق 1 -->
                 <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
@@ -638,7 +647,6 @@
                         <span class="client-name">- سارة أحمد</span>
                     </div>
                 </div>
-                <!-- تعليق 2 -->
                 <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
@@ -649,7 +657,6 @@
                         <span class="client-name">- نورة الخالد</span>
                     </div>
                 </div>
-                <!-- تعليق 3 -->
                 <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
@@ -660,7 +667,6 @@
                         <span class="client-name">- محمد عبدالله</span>
                     </div>
                 </div>
-                <!-- تعليق 4 (يظهر عند السحب) -->
                 <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
@@ -671,7 +677,6 @@
                         <span class="client-name">- ريم الفهد</span>
                     </div>
                 </div>
-                 <!-- تعليق 5 (يظهر عند السحب) -->
                  <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
@@ -689,8 +694,6 @@
     </section>
 
     <section id="about" class="about">
-        <!-- تم إزالة الأيقونات من هنا -->
-        
         <div class="about-content reveal">
             <h2 class="section-title">قصتنا</h2>
             <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءًا من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج.</p>
@@ -698,7 +701,7 @@
     </section>
 
     <section id="contact" class="lead-capture reveal">
-        <h2 class="section-title" style="color: white;">أرسل لنا رسالة واحصل على هدية 🎁</h2>
+        <h2 class="section-title">أرسل لنا رسالة واحصل على هدية 🎁</h2>
         <p>اترك بياناتك وسنتواصل معك على الواتساب لتقديم عروضنا الحصرية.</p>
         <form action="#" method="POST">
             <input type="text" placeholder="الاسم" required>
@@ -723,7 +726,6 @@
     </a>
 
     <script>
-        // 1. حركة الظهور عند النزول (Scroll Reveal)
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -738,7 +740,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // 2. تفعيل قائمة الجوال (Mobile Menu Toggle)
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
         
@@ -746,19 +747,16 @@
             navLinks.classList.toggle('active');
         });
 
-        // إغلاق القائمة عند النقر على أي رابط داخلها
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // 3. أزرار شريط التمرير للتعليقات (Testimonials Slider)
         const sliderTrack = document.getElementById('slider-track');
         const slideNext = document.getElementById('slide-next');
         const slidePrev = document.getElementById('slide-prev');
 
-        // بما أن الموقع باللغة العربية (RTL)، فإن التمرير لليسار (Next) يعني قيمة سالبة
         slideNext.addEventListener('click', () => {
             sliderTrack.scrollBy({ left: -320, behavior: 'smooth' });
         });
