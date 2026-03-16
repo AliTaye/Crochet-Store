@@ -128,7 +128,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* تم إضافة لون خلفية مؤقت في حال لم تحمل الصورة */
             background: linear-gradient(rgba(254, 250, 224, 0.85), rgba(254, 250, 224, 0.95)), url('bgHero.jpg') center/cover no-repeat, var(--bg-color);
         }
         .hero h1 {
@@ -556,7 +555,7 @@
         <div class="logo-container">
             <a href="#">
                 <!-- مكان (اللوجو)  -->
-                <img src="https://placehold.co/100x100/E7DBB3/6A4B3A?text=لوجو" alt="شعار عِقد وغرزة" onerror="this.src='logo.jpeg'">
+                <img src="logo.jpeg" alt="شعار عِقد وغرزة" onerror="this.src='logo.jpeg'">
             </a>
         </div>
         
@@ -803,7 +802,7 @@
             var phone = document.getElementById('senderPhone').value;
             var message = document.getElementById('senderMessage').value;
             
-            var myWhatsAppNumber = "966545065415"; 
+            var myWhatsAppNumber = "966559597829"; 
             
             var textMessage = "مرحباً معك متجر عِقد وغرزة 🧶، هديتك هي خصم 20% لأول طلب من متجرنا🧶😍 قول ايش بخاطرك! ومالك إلا طيب❤️:%0a%0a";
             textMessage += "👤 الاسم: " + name + "%0a";
