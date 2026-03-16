@@ -15,7 +15,7 @@
             --bg-color: #FEFAE0; /* خلفية سكرية/بيج */
             --text-color: #3E2723;
             --white: #FFFFFF;
-            --navbar-bg: #E7DBB3;
+            --navbar-bg: var(--primary-color); /* تم تغيير لون الناف بار إلى البني الغامق */
         }
 
         /* تفعيل التمرير السلس */
@@ -47,12 +47,21 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
         }
 
+        .logo-container {
+            /* إضافة خلفية فاتحة للشعار ليبرز على الناف بار الغامق */
+            background-color: var(--bg-color);
+            padding: 5px 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+        }
+
         .logo-container img {
-            height: 70px; /* تم تكبير الشعار ليكون أوضح */
+            height: 60px; /* تم تعديل الحجم ليتناسب مع الإطار الجديد */
             max-width: 150px;
             object-fit: contain;
             transition: transform 0.3s ease;
@@ -70,7 +79,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--bg-color); /* لون الروابط فاتح ليناسب الناف بار الغامق */
             font-weight: 600;
             font-size: 1.05rem;
             padding: 8px 18px;
@@ -80,10 +89,9 @@
         }
 
         .nav-links a:hover {
-            background-color: var(--bg-color); /* خلفية سكرية خفيفة عند التمرير */
-            color: var(--primary-color);
+            background-color: rgba(254, 250, 224, 0.15); /* خلفية شفافة فاتحة عند التمرير */
+            color: var(--white);
             transform: translateY(-2px); /* ارتفاع بسيط للأعلى */
-            box-shadow: 0 4px 10px rgba(106, 75, 58, 0.1); /* ظل ناعم */
         }
 
         /* حركات الظهور (Animations) */
@@ -100,7 +108,12 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 150px 20px 100px;
+            padding: 100px 20px 20px;
+            min-height: 85vh; /* تم زيادة طول السكشن ليأخذ 85% من الشاشة */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             background-color: var(--bg-color);
             background-image: linear-gradient(rgba(254, 250, 224, 0.75), rgba(254, 250, 224, 0.95)), url('b1b6b2e498c40cfc67d65877cb10e603.jpg');
             background-size: cover;
@@ -108,14 +121,14 @@
             background-repeat: no-repeat;
         }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: 700;
         }
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            margin-bottom: 35px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -123,9 +136,9 @@
         .btn {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 15px 30px;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-weight: bold;
             font-size: 1.1rem;
             transition: 0.3s;
@@ -135,8 +148,8 @@
         }
         .btn:hover {
             background-color: #50372A;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(106, 75, 58, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(106, 75, 58, 0.3);
         }
 
         /* Stats Section (قسم الأرقام) */
@@ -147,13 +160,23 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 50px;
+            gap: 60px;
             text-align: center;
+        }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
         }
         .stat-item h3 {
             font-size: 3rem;
             margin-bottom: 5px;
-            color: var(--secondary-color);
+            color: var(--bg-color);
             font-weight: 700;
         }
         .stat-item p {
@@ -305,15 +328,38 @@
 
         /* About Section */
         .about {
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
             background-color: var(--white);
+            position: relative;
+            overflow: hidden; /* لمنع الأشكال من الخروج عن الإطار */
+        }
+        /* الأشكال الجمالية (الباترنز) في سكشن قصتنا */
+        .pattern-bg {
+            position: absolute;
+            color: var(--primary-color);
+            opacity: 0.04; /* شفافية عالية جداً حتى لا تزعج القراءة */
+            z-index: 0;
+        }
+        .pattern-1 {
+            top: -30px;
+            right: -40px;
+            font-size: 250px;
+            transform: rotate(15deg);
+        }
+        .pattern-2 {
+            bottom: -40px;
+            left: -30px;
+            font-size: 200px;
+            transform: rotate(-20deg);
         }
         .about-content {
             max-width: 800px;
             margin: auto;
             font-size: 1.2rem;
             line-height: 1.8;
+            position: relative;
+            z-index: 1; /* لإبقاء النص فوق الأشكال الجمالية */
         }
         .about h2 {
             font-size: 2.2rem;
@@ -451,9 +497,11 @@
 
     <!-- شريط التنقل مع اللوجو -->
     <header>
-        <a href="#" class="logo-container">
-            <img src="ad743bb8-e984-4cce-afdb-985cc729e703.jpeg" alt="شعار عِقد وغرزة">
-        </a>
+        <div class="logo-container">
+            <a href="#">
+                <img src="ad743bb8-e984-4cce-afdb-985cc729e703.jpeg" alt="شعار عِقد وغرزة">
+            </a>
+        </div>
         <ul class="nav-links">
             <li><a href="#features">مميزاتنا</a></li>
             <li><a href="#gallery">أعمالنا</a></li>
@@ -474,14 +522,17 @@
     <!-- قسم الأرقام الإحصائية الجديد -->
     <section class="stats reveal">
         <div class="stat-item">
+            <i class="fa-solid fa-basket-shopping stat-icon"></i>
             <h3>+100</h3>
             <p>عميل سعيد</p>
         </div>
         <div class="stat-item">
+            <i class="fa-solid fa-yarn stat-icon"></i>
             <h3>+150</h3>
             <p>عمل فني متميز</p>
         </div>
         <div class="stat-item">
+            <i class="fa-solid fa-scissors stat-icon"></i>
             <h3>%100</h3>
             <p>شغل يدوي بحُب</p>
         </div>
@@ -578,6 +629,10 @@
     </section>
 
     <section id="about" class="about">
+        <!-- أشكال جمالية خلفية (باترنز) -->
+        <i class="fa-solid fa-yarn pattern-bg pattern-1"></i>
+        <i class="fa-solid fa-mitten pattern-bg pattern-2"></i>
+        
         <div class="about-content reveal">
             <h2>قصتنا</h2>
             <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءًا من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج.</p>
