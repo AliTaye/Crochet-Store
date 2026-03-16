@@ -7,7 +7,7 @@
     <!-- مكتبة الأيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
 
         :root {
             --primary-color: #6A4B3A; /* تم تغميق اللون البني ليكون أكثر فخامة ووضوحاً */
@@ -15,6 +15,7 @@
             --bg-color: #FEFAE0; /* خلفية سكرية/بيج */
             --text-color: #3E2723;
             --white: #FFFFFF;
+            --navbar-bg: #E7DBB3;
         }
 
         /* تفعيل التمرير السلس */
@@ -26,7 +27,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Cairo', sans-serif;
         }
 
         body {
@@ -37,7 +38,7 @@
 
         /* شريط التنقل (Navbar) */
         header {
-            background-color: rgba(231, 219, 179, 0.85);
+            background-color: var(--navbar-bg);
             padding: 10px 50px;
             display: flex;
             justify-content: space-between;
@@ -349,15 +350,16 @@
         .lead-capture input, .lead-capture textarea {
             padding: 15px 20px;
             width: 100%;
-            border-radius: 20px;
+            border-radius: 15px; /* توحيد الحواف لجميع الحقول */
             border: none;
             outline: none;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Cairo', sans-serif;
             font-size: 1rem;
+            text-align: right; /* إجبار النص على البدء من اليمين */
+            direction: rtl; /* حل مشكلة حقل رقم الجوال */
         }
         .lead-capture textarea {
             resize: vertical;
-            border-radius: 15px;
         }
         .btn-dark {
             background-color: var(--text-color);
