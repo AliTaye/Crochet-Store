@@ -808,15 +808,16 @@
             
             var myWhatsAppNumber = "966545065415"; 
             
-            var rawMessage =`مرحبًا في واتساب عِقد وغرزة🧶
-                            عشانك ارسلت لنا رسالة تستاهل هدية!
-                            وهي: خصم 50% لطلبك الأول😍
+            var rawMessage =
+`مرحبًا في واتساب عِقد وغرزة🧶
+عشانك ارسلت لنا رسالة تستاهل هدية!
+وهي: خصم 50% لطلبك الأول😍
 
-                            تفضل بالطلب وبنشيلك في عيوننا👀❤️
+تفضل بالطلب وبنشيلك في عيوننا👀❤️
 
-                            الاسم: ${name}
-                            رقم الجوال: ${phone}
-                            الرسالة: ${message}`;
+الاسم: ${name}
+رقم الجوال: ${phone}
+الرسالة: ${message}`;
             
             var whatsappUrl = "https://wa.me/" + myWhatsAppNumber + "?text=" + encodeURIComponent(rawMessage);
             window.open(whatsappUrl, '_blank');
