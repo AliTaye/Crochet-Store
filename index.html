@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#6A4B3A">
     
-    <title>عِقد وغرزة 🧶</title>
+    <title>عِقد وغرزة 🧶 | هدايا تصنع بحب</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
@@ -183,6 +183,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 120px;
         }
         .stat-icon {
             font-size: 2.5rem;
@@ -200,7 +201,7 @@
         .features {
             padding: 80px 20px;
             text-align: center;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
         }
         .section-title {
@@ -209,17 +210,22 @@
             color: var(--primary-color);
             font-weight: 700;
         }
+        
+        /* تعديل قسم المميزات ليصبح بنظام الـ Flex للتحكم بالمنتصف */
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
         .feature-card {
             background-color: var(--white);
-            padding: 30px;
+            padding: 30px 15px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             transition: transform 0.3s;
+            /* 5 عناصر في صف واحد في اللابتوب */
+            width: calc(20% - 20px); 
         }
         .feature-card:hover {
             transform: translateY(-10px);
@@ -241,6 +247,44 @@
         .feature-card h3 {
             color: var(--primary-color);
             margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .feature-card p {
+            font-size: 0.95rem;
+        }
+
+        /* استجابة قسم المميزات للتابلت والجوال */
+        @media (max-width: 1024px) {
+            .feature-card {
+                /* 3 في الصف الأول و 2 منتصفة في الصف الثاني */
+                width: calc(33.333% - 20px);
+            }
+        }
+        @media (max-width: 768px) {
+            .features-grid {
+                gap: 10px;
+            }
+            .feature-card {
+                /* الحفاظ على 3 في الصف الأول للجوال وتصغير الحواف */
+                width: calc(33.333% - 10px);
+                padding: 15px 5px;
+            }
+            .icon-wrapper {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+            .feature-icon {
+                font-size: 1.3rem;
+            }
+            .feature-card h3 {
+                font-size: 0.85rem;
+                margin-bottom: 5px;
+            }
+            .feature-card p {
+                font-size: 0.65rem;
+                line-height: 1.4;
+            }
         }
 
         /* Gallery Section */
@@ -251,7 +295,8 @@
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* 3 منتجات في اللابتوب والتابلت */
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             max-width: 1100px;
             margin: auto;
@@ -278,6 +323,27 @@
             color: var(--text-color);
             margin-bottom: 5px;
             font-weight: 600;
+        }
+
+        /* استجابة قسم المعرض للجوال */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                /* منتجين في كل صف للجوال */
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .gallery-img {
+                height: 160px;
+            }
+            .gallery-content {
+                padding: 12px;
+            }
+            .gallery-content h3 {
+                font-size: 0.95rem;
+            }
+            .gallery-content p {
+                font-size: 0.8rem;
+            }
         }
 
         /* Testimonials Slider Section */
@@ -412,7 +478,6 @@
         }
         .lead-capture textarea { resize: vertical; }
         
-        /* تنسيق الملاحظة الصغيرة الخاصة برقم الجوال */
         .phone-hint {
             display: block;
             text-align: right;
@@ -550,6 +615,9 @@
             .about {
                 background-attachment: scroll; 
             }
+            
+            .stats { gap: 30px; }
+            .stat-item { min-width: 40%; }
         }
     </style>
 </head>
@@ -579,9 +647,10 @@
     <section class="hero">
         <div class="reveal">
             <h1>عقد وغرزة🧶</h1>
-            <h2>من خيوطنا ننسِج لك لحظاتٍ دافئة❤️</h2> 
-            <p>قطع كروشيه يدوية فريدة، صُممت لتضفي دفئًا ولمسة فنية لحياتك.</p>
-            <a href="#contact" class="btn">اطلب تصميمك الخاص الآن</a>
+            <!-- تم تعديل العنوان والوصف ليتناسب مع الهدايا -->
+            <h2>أهدِ من تحب قطعةً نُسجت خيوطها بحُب 🎁</h2> 
+            <p>الهدية التي لا تُنسى.. تُصنع باليد خصيصاً لمن تحب وتضفي دفئاً ولمسة فنية لحياتهم.</p>
+            <a href="#contact" class="btn">صمم هديتك المميزة الآن</a>
         </div>
     </section>
 
@@ -599,7 +668,13 @@
         <div class="stat-item">
             <i class="fa-solid fa-hands-holding-circle stat-icon"></i>
             <h3>%100</h3>
-            <p>شغل يدوي بحُب</p>
+            <p>صنع يدوي بحُب</p>
+        </div>
+        <!-- تمت إضافة إحصائية الهدايا الجديدة هنا -->
+        <div class="stat-item">
+            <i class="fa-solid fa-gift stat-icon"></i>
+            <h3>&infin;</h3>
+            <p>هدايا ما تخلص</p>
         </div>
     </section>
 
@@ -611,7 +686,7 @@
                     <i class="fa-solid fa-hand-holding-heart feature-icon"></i>
                 </div>
                 <h3>صُنعت بأيدي شغوفة</h3>
-                <p>كل قطعة تأخذ وقتها من العناية والاهتمام، لتصلك كتحفة فنية لا تتكرر.</p>
+                <p>كل قطعة تأخذ وقتها من العناية والاهتمام، لتصل كتحفة فنية لا تتكرر.</p>
             </div>
             <div class="feature-card reveal">
                 <div class="icon-wrapper">
@@ -624,35 +699,53 @@
                 <div class="icon-wrapper">
                     <i class="fa-solid fa-palette feature-icon"></i>
                 </div>
-                <h3>على ذوقك تماماً</h3>
-                <p>من اختيار الألوان إلى تحديد المقاسات، نحول خيالك إلى قطعة ملموسة.</p>
+                <h3>خيالك نترجمه لواقع</h3>
+                <p>نستقبل طلباتكم المخصصة بكل حب، أي فكرة أو تصميم في بالك نسويه ونحوله لقطعة فنية بين يديك.</p>
+            </div>
+            
+            <!-- الكارد الخاص بالتغليف -->
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-box-open feature-icon"></i>
+                </div>
+                <h3>تغليف جاهز للإهداء</h3>
+                <p>تصلك القطعة بتغليف أنيق وجاهز للإهداء مباشرة، مع كرت إهداء بعبارتك الخاصة لتكتمل الفرحة.</p>
+            </div>
+
+            <!-- الكارد الخاص بالهدايا المجانية -->
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-gift feature-icon"></i>
+                </div>
+                <h3>هدايا مع كل طلب</h3>
+                <p>لأننا نحب تدليل عملائنا، نضيف مع كل طلب قطعاً وتوزيعات صغيرة ولطيفة كهدية مجانية تسعد قلبك.</p>
             </div>
         </div>
     </section>
 
     <section id="gallery" class="gallery">
         <h2 class="section-title reveal">أبرز إبداعاتنا</h2>
-        <!-- 👇 🖼️ مكان تغيير صور معرض الأعمال 👇 -->
+        <!-- تم تعديل نصوص المعرض لتركز على الإهداء -->
         <div class="gallery-grid">
             <div class="gallery-card reveal">
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=توزيعات+كروشيه" alt="توزيعات كروشيه" class="gallery-img">
                 <div class="gallery-content">
-                    <h3>توزيعات المناسبات السعيدة 🎁</h3>
-                    <p>أضف لمسة مختلفة لمناسباتك.</p>
+                    <h3>هدايا وتوزيعات تبيّض الوجه 🎁</h3>
+                    <p>أضف لمسة مختلفة لمناسباتك ومواليدك.</p>
                 </div>
             </div>
             <div class="gallery-card reveal">
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=دمى+أميجرومي" alt="أميجرومي" class="gallery-img">
                 <div class="gallery-content">
-                    <h3>أصدقاء الصغار (أميجرومي) 🧸</h3>
-                    <p>دمى آمنة ولطيفة لأطفالك.</p>
+                    <h3>الهدية الألطف لطفل من تحب 🧸</h3>
+                    <p>أصدقاء الصغار، دمى آمنة ولطيفة تفرح قلبهم.</p>
                 </div>
             </div>
             <div class="gallery-card reveal">
                 <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=حقائب+وسكارفات" alt="حقائب كروشيه" class="gallery-img">
                 <div class="gallery-content">
-                    <h3>أناقة التفاصيل 🧣</h3>
-                    <p>حقائب وسكارفات شتوية مميزة.</p>
+                    <h3>هدية شتوية دافئة لمن تحب 🧣</h3>
+                    <p>حقائب وسكارفات بأناقة التفاصيل العالية.</p>
                 </div>
             </div>
         </div>
@@ -663,11 +756,12 @@
         <div class="slider-container">
             <button class="slider-btn prev-btn" id="slide-prev"><i class="fa-solid fa-chevron-right"></i></button>
             
+            <!-- تم تعديل الآراء لتعكس مشاعر الإهداء -->
             <div class="testimo-slider" id="slider-track">
                 <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <p>"القطعة وصلتني أجمممل بكثير من الصور! دقة في الشغل ونظافة في الخيوط تفتح النفس، يعطيكم ألف عافية."</p>
+                        <p>"أهديتها لصديقتي بمناسبة تخرجها وطارت من الفرحة! التغليف لوحده كان حكاية والقطعة تواجه.. شكراً لكم."</p>
                     </div>
                     <div class="client-info">
                         <div class="stars">★★★★★</div>
@@ -677,7 +771,7 @@
                 <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <p>"طلبت دمية لبنتي ومقاساتها وألوانها طلعت بالضبط مثل ما طلبت، التعامل راقي جداً والتوصيل سريع. تجربة ممتازة."</p>
+                        <p>"طلبت دمية هدية لبنت أختي ومقاساتها وألوانها طلعت بالضبط مثل ما طلبت، صارت ما تنام إلا والدمية بحضنها!"</p>
                     </div>
                     <div class="client-info">
                         <div class="stars">★★★★★</div>
@@ -687,7 +781,7 @@
                 <div class="testimo-card">
                     <div>
                         <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <p>"السكارف الشتوي يدفي وشكله فخم، الخيوط جودتها عالية وما تسبب أي حساسية. شكراً لإبداعكم."</p>
+                        <p>"أهديت السكارف الشتوي لأمي ومرة عجبها، يدفي وشكله فخم، الخيوط جودتها عالية وما تسبب أي حساسية. شكراً لإبداعكم."</p>
                     </div>
                     <div class="client-info">
                         <div class="stars">★★★★★</div>
@@ -704,16 +798,6 @@
                         <span class="client-name">- ريم الفهد</span>
                     </div>
                 </div>
-                 <div class="testimo-card">
-                    <div>
-                        <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <p>"شغلكم يجنن ومتقن جداً، طلبت خداديات للكنب وغيرت شكل الصالة بالكامل. استمروا يا مبدعين!"</p>
-                    </div>
-                    <div class="client-info">
-                        <div class="stars">★★★★★</div>
-                        <span class="client-name">- أم خالد</span>
-                    </div>
-                </div>
             </div>
 
             <button class="slider-btn next-btn" id="slide-next"><i class="fa-solid fa-chevron-left"></i></button>
@@ -723,24 +807,24 @@
     <section id="about" class="about">
         <div class="about-content reveal">
             <h2 class="section-title">قصتنا</h2>
-            <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءًا من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج.</p>
+            <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءًا من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج، لتكون الهدية الأجمل لمن تحب.</p>
         </div>
     </section>
 
     <section id="contact" class="lead-capture reveal">
-        <h2 class="section-title">أرسل لنا رسالة واحصل على هدية 🎁</h2>
-        <p>اترك بياناتك وسنتواصل معك على الواتساب لتقديم عروضنا الحصرية.</p>
+        <!-- تم تعديل عنوان ووصف نموذج التواصل -->
+        <h2 class="section-title">محتار وش تهدي؟ تواصل معنا ونساعدك! 🎁</h2>
+        <p>اترك بياناتك وسنتواصل معك على الواتساب لنقترح لك أجمل الهدايا المناسبة لميزانيتك، مع خصم 50% على طلبك الأول!</p>
         <form id="contactForm" onsubmit="sendToWhatsApp(event)">
             <input type="text" id="senderName" placeholder="الاسم" required>
             
-            <!-- تم التعديل هنا لفرض صيغة معينة للرقم -->
             <div>
                 <input type="tel" id="senderPhone" placeholder="رقم الجوال (مثال: 05XXXXXXXX)" pattern="^05[0-9]{8}$" title="يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام" required>
                 <small class="phone-hint">* يجب أن يبدأ الرقم بـ 05 ويتكون من 10 أرقام</small>
             </div>
             
             <textarea id="senderMessage" placeholder="رسالتك أو طلبك..." rows="3" required></textarea>
-            <button type="submit" class="btn btn-dark">إرسال والحصول على الهدية!</button>
+            <button type="submit" class="btn btn-dark">إرسال والحصول على خصم 50%</button>
         </form>
     </section>
 
@@ -798,7 +882,6 @@
             sliderTrack.scrollBy({ left: 320, behavior: 'smooth' });
         });
 
-        // دالة إرسال النموذج إلى الواتساب
         function sendToWhatsApp(event) {
             event.preventDefault();
             
