@@ -42,8 +42,7 @@
         /* Navbar */
         header {
             background-color: var(--primary-color);
-            /* تم تقليل الـ padding العمودي لتعويض تكبير اللوجو للحفاظ على نفس ارتفاع الهيدر */
-            padding: 4px 50px; 
+            padding: 8px 50px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -55,10 +54,9 @@
         }
 
         .logo-container {
-            background-color: var(--primary-color);
-            /* زيادة حجم الحاوية بشكل متناسق */
-            width: 80px; 
-            height: 80px; 
+            background-color: transparent;
+            width: 60px; 
+            height: 60px; 
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -77,13 +75,12 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            /* خدعة الـ scale لتكبير اللوجو بصرياً بدون التأثير على مساحة الهيدر */
-            transform: scale(1.2); 
+            /* إزالة الـ scale الذي كان يسبب الخروج من الهيدر */
             transition: transform 0.3s ease;
         }
         
         .logo-container img:hover {
-            transform: scale(1.25);
+            transform: scale(1.1);
         }
 
         svg {
@@ -647,13 +644,11 @@
             }
         }
         @media (max-width: 768px) {
-            /* تعديل الهيدر للموبايل للمحافظة على التناسق */
-            header { padding: 4px 15px; }
+            header { padding: 8px 15px; }
             
-            /* تم حل مشكلة تشوه الـ SVG عن طريق إزالة الـ padding وزيادة المساحة الفعالة للوجو */
             .logo-container { 
-                width: 60px; 
-                height: 60px; 
+                width: 50px; 
+                height: 50px; 
                 padding: 0; 
             }
             
@@ -738,7 +733,7 @@
     <section class="hero">
         <div class="reveal">
             <h1>عقد وغرزة🧶</h1> 
-            <p>اهدِ قطعة فنية تُصنع يدويًا لمن تحب 🎁</p>
+            <p>اهدِ قطعةً تُصنع يدويًا لمن تحب🎁</p>
             <a href="#contact" class="btn">صمم هديتك المميزة الآن</a>
         </div>
     </section>
