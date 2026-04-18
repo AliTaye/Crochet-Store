@@ -42,7 +42,8 @@
         /* Navbar */
         header {
             background-color: var(--primary-color);
-            padding: 8px 50px;
+            /* تم تقليل الـ padding العمودي لتعويض تكبير اللوجو للحفاظ على نفس ارتفاع الهيدر */
+            padding: 4px 50px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -55,9 +56,19 @@
 
         .logo-container {
             background-color: var(--primary-color);
-            width:65px;
-            height: 65px;
+            /* زيادة حجم الحاوية بشكل متناسق */
+            width: 80px; 
+            height: 80px; 
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container a {
+            display: flex;
+            width: 100%;
+            height: 100%;
             align-items: center;
             justify-content: center;
         }
@@ -66,6 +77,13 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            /* خدعة الـ scale لتكبير اللوجو بصرياً بدون التأثير على مساحة الهيدر */
+            transform: scale(1.2); 
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container img:hover {
+            transform: scale(1.25);
         }
 
         svg {
@@ -206,7 +224,6 @@
             font-weight: 700;
         }
         
-        /* تعديل قسم المميزات ليصبح بنظام الـ Flex للتحكم بالمنتصف */
         .features-grid {
             display: flex;
             flex-wrap: wrap;
@@ -219,7 +236,6 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             transition: transform 0.3s;
-            /* 5 عناصر في صف واحد في اللابتوب */
             width: calc(20% - 20px); 
         }
         .feature-card:hover {
@@ -248,10 +264,8 @@
             font-size: 0.95rem;
         }
 
-        /* استجابة قسم المميزات للتابلت والجوال */
         @media (max-width: 1024px) {
             .feature-card {
-                /* 3 في الصف الأول و 2 منتصفة في الصف الثاني */
                 width: calc(33.333% - 20px);
             }
         }
@@ -260,7 +274,6 @@
                 gap: 10px;
             }
             .feature-card {
-                /* الحفاظ على 3 في الصف الأول للجوال وتصغير الحواف */
                 width: calc(33.333% - 10px);
                 padding: 15px 5px;
             }
@@ -290,7 +303,6 @@
         }
         .gallery-grid {
             display: grid;
-            /* 3 منتجات في اللابتوب والتابلت */
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             max-width: 1100px;
@@ -320,10 +332,8 @@
             font-weight: 600;
         }
 
-        /* استجابة قسم المعرض للجوال */
         @media (max-width: 768px) {
             .gallery-grid {
-                /* منتجين في كل صف للجوال */
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
@@ -451,14 +461,12 @@
             background-color: var(--white);
             padding: 12px 12px 35px 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            /* 3 صور في اللابتوب لكل صف */
             width: calc(33.333% - 20px);
             max-width: 280px;
             transition: transform 0.3s ease, z-index 0s, box-shadow 0.3s ease;
             position: relative;
             border: 1px solid #f0f0f0;
         }
-        /* درجات ميلان مختلفة لكل صورة لتبدو عفوية */
         .polaroid-card:nth-child(1) { transform: rotate(-5deg); }
         .polaroid-card:nth-child(2) { transform: rotate(3deg); margin-top: 20px; }
         .polaroid-card:nth-child(3) { transform: rotate(-2deg); }
@@ -631,21 +639,24 @@
             transform: scale(1.1);
         }
 
-        /* استجابة قسم المميزات للتابلت والجوال */
+        /* استجابة الشاشات */
         @media (max-width: 1024px) {
-            .feature-card {
-                /* 3 في الصف الأول و 2 منتصفة في الصف الثاني */
-                width: calc(33.333% - 20px);
-            }
             .polaroid-card {
-                /* صورتين في كل صف للتابلت */
                 width: calc(50% - 15px);
                 max-width: 320px;
             }
         }
         @media (max-width: 768px) {
-            header { padding: 8px 15px; }
-            .logo-container { width: 45px; height: 45px; padding: 5px; }
+            /* تعديل الهيدر للموبايل للمحافظة على التناسق */
+            header { padding: 4px 15px; }
+            
+            /* تم حل مشكلة تشوه الـ SVG عن طريق إزالة الـ padding وزيادة المساحة الفعالة للوجو */
+            .logo-container { 
+                width: 60px; 
+                height: 60px; 
+                padding: 0; 
+            }
+            
             .menu-toggle { display: block; font-size: 1.5rem; }
             
             .nav-links {
@@ -691,10 +702,8 @@
             .stats { gap: 30px; }
             .stat-item { min-width: 40%; }
             
-            /* Customer Photos Mobile */
             .polaroid-grid { gap: 15px; }
             .polaroid-card { 
-                /* صورتين في كل صف للجوال بدقة عالية */
                 width: calc(50% - 7.5px); 
                 padding: 8px 8px 25px 8px; 
             }
@@ -708,7 +717,6 @@
     <header>
         <div class="logo-container">
             <a href="#">
-                <!-- مكان (اللوجو)  -->
                 <img src="images/newLogo.svg" alt="شعار عِقد وغرزة" onerror="this.src='images/newLogo.svg'">
             </a>
         </div>
@@ -727,24 +735,14 @@
         </ul>
     </header>
 
-
-
-
-    
     <section class="hero">
         <div class="reveal">
-            <h1>عقد وغرزة🧶</h1>
-            <!-- تم تعديل العنوان والوصف ليتناسب مع الهدايا -->
-            <h2>اهدِ من تحب قطعةً نُسجت خيوطها بحُب 🎁</h2> 
-            <p>الهدية التي لا تُنسى.. تُصنع باليد خصيصاً لمن تحب، وتضفي دفئاً ولمسة فنية لحياتهم.</p>
+            <h1>عقد وغرزة🧶</h1> 
+            <p>اهدِ قطعةً تُصنع يدويًا لمن تحب🎁</p>
             <a href="#contact" class="btn">صمم هديتك المميزة الآن</a>
         </div>
     </section>
 
-
-
-
-    
     <section class="stats reveal">
         <div class="stat-item">
             <i class="fa-solid fa-face-smile stat-icon"></i> 
@@ -768,10 +766,6 @@
         </div>
     </section>
 
-
-
-
-    
     <section id="features" class="features">
         <h2 class="section-title reveal">لماذا نحن؟</h2>
         <div class="features-grid">
@@ -797,7 +791,6 @@
                 <p>نستقبل طلباتكم المخصصة بكل حب، أي فكرة أو تصميم في بالك نسويه ونحوله لقطعة فنية بين يديك.</p>
             </div>
             
-            <!-- الكارد الخاص بالتغليف -->
             <div class="feature-card reveal">
                 <div class="icon-wrapper">
                     <i class="fa-solid fa-box-open feature-icon"></i>
@@ -806,7 +799,6 @@
                 <p>تصلك القطعة بتغليف أنيق وجاهز للإهداء مباشرة، مع كرت إهداء بعبارتك الخاصة لتكتمل الفرحة.</p>
             </div>
 
-            <!-- الكارد الخاص بالهدايا المجانية -->
             <div class="feature-card reveal">
                 <div class="icon-wrapper">
                     <i class="fa-solid fa-gift feature-icon"></i>
@@ -817,10 +809,6 @@
         </div>
     </section>
 
-
-
-
-    
     <section id="gallery" class="gallery">
         <h2 class="section-title reveal">أبرز إبداعاتنا</h2>
         <div class="gallery-grid">
@@ -852,10 +840,6 @@
         </div>
     </section>
 
-
-
-
-    
     <section id="customer-photos" class="customer-photos">
         <h2 class="section-title reveal">بعدسة عملائنا 📸</h2>
         <p class="reveal">أجمل اللحظات تكتمل بمشاركتكم.. شكراً لأنكم جعلتم من قطعنا جزءاً من يومكم.</p>
@@ -881,10 +865,6 @@
         </div>
     </section>
 
-
-
-
-    
     <section id="testimonials" class="testimonials reveal">
         <h2 class="section-title">ماذا يقول عملاؤنا؟</h2>
         <div class="slider-container">
@@ -941,10 +921,6 @@
         </div>
     </section>
 
-
-
-
-    
     <section id="about" class="about">
         <div class="about-content reveal">
             <h2 class="section-title">قصتنا</h2>
@@ -952,13 +928,8 @@
         </div>
     </section>
 
-
-
-
-    
     <section id="contact" class="lead-capture reveal">
         <div class="corner-ribbon">خصم 50%</div>
-        <!-- تم تعديل عنوان ووصف نموذج التواصل -->
         <h2 class="section-title">محتار وش تهدي؟ تواصل معنا ونساعدك! 🎁</h2>
         <p>اترك بياناتك وسنتواصل معك على الواتساب لنقترح لك أجمل الهدايا المناسبة لميزانيتك، مع خصم 50% على طلبك الأول!</p>
         <form id="contactForm" onsubmit="sendToWhatsApp(event)">
@@ -974,10 +945,6 @@
         </form>
     </section>
 
-
-
-
-    
     <footer>
         <div class="social-icons">
             <a href="https://www.instagram.com/crochet.store.s/" class="instagram" target="_blank" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
@@ -992,10 +959,6 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-
-
-
-    
     <script>
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -1036,7 +999,6 @@
             sliderTrack.scrollBy({ left: 320, behavior: 'smooth' });
         });
 
-        // رسالة الواتس اب بقت زي ما هي بالملي بدون تعديل بناء على طلبك
         function sendToWhatsApp(event) {
             event.preventDefault();
             
