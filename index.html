@@ -77,6 +77,11 @@
             object-fit: contain;
         }
 
+        /* صورة المنتصف للجوال والايباد */
+        .mobile-header-img {
+            display: none;
+        }
+
         .nav-links {
             display: flex;
             gap: 15px;
@@ -254,11 +259,65 @@
             .feature-card {
                 width: calc(33.333% - 20px);
             }
-        }
-        @media (max-width: 768px) {
-            .features-grid {
-                gap: 10px;
+            .polaroid-card {
+                width: calc(50% - 15px);
+                max-width: 320px;
             }
+        }
+        
+        /* إظهار الصورة في مقاسات الآيباد والجوال فقط (لتجنب شاشات اللابتوب) */
+        @media (max-width: 900px) {
+            .mobile-header-img {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                max-width: 180px; 
+                height: auto;
+                max-height: 45px; 
+                object-fit: contain;
+                z-index: 1001;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header { padding: 8px 15px; }
+            
+            .logo-container { 
+                width: 50px; 
+                height: 50px; 
+                padding: 0; 
+            }
+
+            .mobile-header-img {
+                max-width: 130px; 
+                max-height: 35px;
+            }
+            
+            .menu-toggle { display: block; font-size: 1.5rem; }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: -100%; 
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                right: 0; 
+            }
+            .nav-links a {
+                display: block;
+                padding: 15px;
+                font-size: 1.2rem;
+            }
+
+            .features-grid { gap: 10px; }
             .feature-card {
                 width: calc(33.333% - 10px);
                 padding: 15px 5px;
@@ -268,9 +327,7 @@
                 height: 50px;
                 margin-bottom: 10px;
             }
-            .feature-icon {
-                font-size: 1.3rem;
-            }
+            .feature-icon { font-size: 1.3rem; }
             .feature-card h3 {
                 font-size: 0.85rem;
                 margin-bottom: 5px;
@@ -279,6 +336,35 @@
                 font-size: 0.65rem;
                 line-height: 1.4;
             }
+
+            .hero h1 { font-size: 2.5rem; }
+            
+            .testimo-card { 
+                min-width: 80vw; 
+                width: 80vw;
+                flex: 0 0 80vw;
+                padding: 25px 20px;
+            } 
+            .testimo-slider { 
+                padding: 10px 5vw; 
+                gap: 15px; 
+            }
+            
+            .slider-btn { display: none; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
+
+            .about { background-attachment: scroll; }
+            
+            .stats { gap: 30px; }
+            .stat-item { min-width: 40%; }
+            
+            .polaroid-grid { gap: 15px; }
+            .polaroid-card { 
+                width: calc(50% - 7.5px); 
+                padding: 8px 8px 25px 8px; 
+            }
+            .polaroid-img { height: 160px; }
+            .customer-photos p { font-size: 0.95rem; margin-bottom: 25px; }
         }
 
         /* Gallery Section */
@@ -309,9 +395,7 @@
             height: 250px;
             object-fit: cover;
         }
-        .gallery-content {
-            padding: 20px;
-        }
+        .gallery-content { padding: 20px; }
         .gallery-content h3 {
             color: var(--text-color);
             margin-bottom: 5px;
@@ -323,18 +407,10 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
-            .gallery-img {
-                height: 160px;
-            }
-            .gallery-content {
-                padding: 12px;
-            }
-            .gallery-content h3 {
-                font-size: 0.95rem;
-            }
-            .gallery-content p {
-                font-size: 0.8rem;
-            }
+            .gallery-img { height: 160px; }
+            .gallery-content { padding: 12px; }
+            .gallery-content h3 { font-size: 0.95rem; }
+            .gallery-content p { font-size: 0.8rem; }
         }
 
         /* Testimonials Slider Section */
@@ -359,9 +435,7 @@
             padding: 10px 0;
             scrollbar-width: none;
         }
-        .testimo-slider::-webkit-scrollbar {
-            display: none;
-        }
+        .testimo-slider::-webkit-scrollbar { display: none; }
         .testimo-card {
             background-color: var(--white);
             padding: 30px 25px;
@@ -387,9 +461,7 @@
             opacity: 0.5;
             margin-bottom: 15px;
         }
-        .client-info {
-            margin-top: 20px;
-        }
+        .client-info { margin-top: 20px; }
         .client-name {
             font-weight: bold;
             color: var(--primary-color);
@@ -514,9 +586,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             z-index: 10;
         }
-        .lead-capture h2 {
-            color: var(--white);
-        }
+        .lead-capture h2 { color: var(--white); }
         .lead-capture form {
             display: flex;
             flex-direction: column;
@@ -624,76 +694,6 @@
             background-color: #1ebe57;
             transform: scale(1.1);
         }
-
-        /* استجابة الشاشات */
-        @media (max-width: 1024px) {
-            .polaroid-card {
-                width: calc(50% - 15px);
-                max-width: 320px;
-            }
-        }
-        @media (max-width: 768px) {
-            header { padding: 8px 15px; }
-            
-            .logo-container { 
-                width: 50px; 
-                height: 50px; 
-                padding: 0; 
-            }
-            
-            .menu-toggle { display: block; font-size: 1.5rem; }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                right: -100%; 
-                flex-direction: column;
-                background-color: var(--primary-color);
-                width: 100%;
-                text-align: center;
-                padding: 20px 0;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-            }
-            .nav-links.active {
-                right: 0; 
-            }
-            .nav-links a {
-                display: block;
-                padding: 15px;
-                font-size: 1.2rem;
-            }
-
-            .hero h1 { font-size: 2.5rem; }
-            
-            .testimo-card { 
-                min-width: 80vw; 
-                width: 80vw;
-                flex: 0 0 80vw;
-                padding: 25px 20px;
-            } 
-            .testimo-slider { 
-                padding: 10px 5vw; 
-                gap: 15px; 
-            }
-            
-            .slider-btn { display: none; }
-            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
-
-            .about {
-                background-attachment: scroll; 
-            }
-            
-            .stats { gap: 30px; }
-            .stat-item { min-width: 40%; }
-            
-            .polaroid-grid { gap: 15px; }
-            .polaroid-card { 
-                width: calc(50% - 7.5px); 
-                padding: 8px 8px 25px 8px; 
-            }
-            .polaroid-img { height: 160px; }
-            .customer-photos p { font-size: 0.95rem; margin-bottom: 25px; }
-        }
     </style>
 </head>
 <body>
@@ -705,6 +705,9 @@
             </a>
         </div>
         
+        <!-- الصورة المضافة لمنتصف الهيدر في الجوال والآيباد -->
+        <img src="images/header-center-img.jpg" class="mobile-header-img" width="500" height="200">
+
         <div class="menu-toggle" id="mobile-menu">
             <i class="fa-solid fa-bars"></i>
         </div>
