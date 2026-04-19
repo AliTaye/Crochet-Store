@@ -77,7 +77,6 @@
             object-fit: contain;
         }
 
-        /* صورة المنتصف للجوال والايباد */
         .mobile-header-img {
             display: none;
         }
@@ -255,118 +254,6 @@
             font-size: 0.95rem;
         }
 
-        @media (max-width: 1024px) {
-            .feature-card {
-                width: calc(33.333% - 20px);
-            }
-            .polaroid-card {
-                width: calc(50% - 15px);
-                max-width: 320px;
-            }
-        }
-        
-        /* إظهار الصورة في مقاسات الآيباد والجوال فقط (لتجنب شاشات اللابتوب) */
-        @media (max-width: 900px) {
-            .mobile-header-img {
-                display: block;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100%;
-                max-width: 180px; 
-                height: auto;
-                max-height: 45px; 
-                object-fit: contain;
-                z-index: 1001;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header { padding: 8px 15px; }
-            
-            .logo-container { 
-                width: 50px; 
-                height: 50px; 
-                padding: 0; 
-            }
-
-            .mobile-header-img {
-                max-width: 130px; 
-                max-height: 35px;
-            }
-            
-            .menu-toggle { display: block; font-size: 1.5rem; }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                right: -100%; 
-                flex-direction: column;
-                background-color: var(--primary-color);
-                width: 100%;
-                text-align: center;
-                padding: 20px 0;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-            }
-            .nav-links.active {
-                right: 0; 
-            }
-            .nav-links a {
-                display: block;
-                padding: 15px;
-                font-size: 1.2rem;
-            }
-
-            .features-grid { gap: 10px; }
-            .feature-card {
-                width: calc(33.333% - 10px);
-                padding: 15px 5px;
-            }
-            .icon-wrapper {
-                width: 50px;
-                height: 50px;
-                margin-bottom: 10px;
-            }
-            .feature-icon { font-size: 1.3rem; }
-            .feature-card h3 {
-                font-size: 0.85rem;
-                margin-bottom: 5px;
-            }
-            .feature-card p {
-                font-size: 0.65rem;
-                line-height: 1.4;
-            }
-
-            .hero h1 { font-size: 2.5rem; }
-            
-            .testimo-card { 
-                min-width: 80vw; 
-                width: 80vw;
-                flex: 0 0 80vw;
-                padding: 25px 20px;
-            } 
-            .testimo-slider { 
-                padding: 10px 5vw; 
-                gap: 15px; 
-            }
-            
-            .slider-btn { display: none; }
-            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
-
-            .about { background-attachment: scroll; }
-            
-            .stats { gap: 30px; }
-            .stat-item { min-width: 40%; }
-            
-            .polaroid-grid { gap: 15px; }
-            .polaroid-card { 
-                width: calc(50% - 7.5px); 
-                padding: 8px 8px 25px 8px; 
-            }
-            .polaroid-img { height: 160px; }
-            .customer-photos p { font-size: 0.95rem; margin-bottom: 25px; }
-        }
-
         /* Gallery Section */
         .gallery {
             padding: 80px 20px;
@@ -400,17 +287,6 @@
             color: var(--text-color);
             margin-bottom: 5px;
             font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            .gallery-img { height: 160px; }
-            .gallery-content { padding: 12px; }
-            .gallery-content h3 { font-size: 0.95rem; }
-            .gallery-content p { font-size: 0.8rem; }
         }
 
         /* Testimonials Slider Section */
@@ -506,10 +382,10 @@
             margin: -20px auto 40px;
             color: var(--text-color);
         }
+        /* الأساس (لأجهزة اللابتوب) - 3 صور في الصف */
         .polaroid-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             max-width: 1100px;
             margin: auto;
@@ -519,8 +395,7 @@
             background-color: var(--white);
             padding: 12px 12px 35px 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: calc(33.333% - 20px);
-            max-width: 280px;
+            width: 100%;
             transition: transform 0.3s ease, z-index 0s, box-shadow 0.3s ease;
             position: relative;
             border: 1px solid #f0f0f0;
@@ -539,9 +414,10 @@
         }
         .polaroid-img {
             width: 100%;
-            height: 220px;
+            aspect-ratio: 1 / 1; /* تجعل الصورة مربعة دائماً مهما تغير العرض */
             object-fit: cover;
             border-radius: 2px;
+            background-color: #f5f5f5;
         }
 
         /* About Section */
@@ -694,6 +570,108 @@
             background-color: #1ebe57;
             transform: scale(1.1);
         }
+
+        /* ========================================================= */
+        /* RESPONSIVE MEDIA QUERIES (يجب أن تكون في نهاية ملف التصميم) */
+        /* ========================================================= */
+
+        @media (max-width: 1024px) {
+            .feature-card { width: calc(33.333% - 20px); }
+            
+            /* فرض صورتين في الصف لأجهزة الآيباد */
+            .polaroid-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .mobile-header-img {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                max-width: 180px; 
+                height: auto;
+                max-height: 45px; 
+                object-fit: contain;
+                z-index: 1001;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Header */
+            header { padding: 8px 15px; }
+            .logo-container { width: 50px; height: 50px; padding: 0; }
+            .mobile-header-img { max-width: 130px; max-height: 35px; }
+            .menu-toggle { display: block; font-size: 1.5rem; }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: -100%; 
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { display: block; padding: 15px; font-size: 1.2rem; }
+
+            /* Hero & Stats */
+            .hero h1 { font-size: 2.5rem; }
+            .stats { gap: 30px; }
+            .stat-item { min-width: 40%; }
+            
+            /* Features */
+            .features-grid { gap: 10px; }
+            .feature-card {
+                width: calc(33.333% - 10px);
+                padding: 15px 5px;
+            }
+            .icon-wrapper { width: 50px; height: 50px; margin-bottom: 10px; }
+            .feature-icon { font-size: 1.3rem; }
+            .feature-card h3 { font-size: 0.85rem; margin-bottom: 5px; }
+            .feature-card p { font-size: 0.65rem; line-height: 1.4; }
+
+            /* Gallery */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .gallery-img { height: 160px; }
+            .gallery-content { padding: 12px; }
+            .gallery-content h3 { font-size: 0.95rem; }
+            .gallery-content p { font-size: 0.8rem; }
+
+            /* Testimonials */
+            .testimo-card { 
+                min-width: 80vw; 
+                width: 80vw;
+                flex: 0 0 80vw;
+                padding: 25px 20px;
+            } 
+            .testimo-slider { padding: 10px 5vw; gap: 15px; }
+            .slider-btn { display: none; }
+
+            /* فرض صورتين في الصف لأجهزة الجوال وتعديل المسافات */
+            .polaroid-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .polaroid-card { padding: 8px 8px 25px 8px; }
+            
+            /* إزالة تحديد الارتفاع السابق لتعمل خاصية المربع بشكل سليم */
+            .polaroid-img { /* تم إزالة height: 160px من هنا */ }
+            
+            .customer-photos p { font-size: 0.95rem; margin-bottom: 25px; }
+
+            /* About & Floating btn */
+            .about { background-attachment: scroll; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
+        }
     </style>
 </head>
 <body>
@@ -701,12 +679,11 @@
     <header>
         <div class="logo-container">
             <a href="#">
-                <img src="images/newLogo.svg" alt="شعار عِقد وغرزة" onerror="this.src='images/newLogo.jpg'">
+                <img src="images/newLogo.svg" alt="شعار عِقد وغرزة" onerror="this.src='https://placehold.co/100x100/6A4B3A/FEFAE0?text=Logo'">
             </a>
         </div>
         
-        <!-- الصورة المضافة لمنتصف الهيدر في الجوال والآيباد -->
-        <img src="images/header-center-img.jpg" class="mobile-header-img" width="500" height="200">
+        <img src="images/header-center-img.jpg" alt="صورة منتصف الهيدر" class="mobile-header-img" width="500" height="200" onerror="this.src='https://placehold.co/500x200/6A4B3A/FEFAE0?text=Center+Image'">
 
         <div class="menu-toggle" id="mobile-menu">
             <i class="fa-solid fa-bars"></i>
@@ -832,22 +809,22 @@
         <p class="reveal">أجمل اللحظات تكتمل بمشاركتكم.. شكراً لأنكم جعلتم من قطعنا جزءاً من يومكم.</p>
         <div class="polaroid-grid">
             <div class="polaroid-card reveal">
-                <img src="images/costumerPic1.jpeg" alt="تصوير العملاء" class="polaroid-img">
+                <img src="images/costumerPic1.jpeg" alt="تصوير العملاء" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/eee/999?text=Image'">
             </div>
             <div class="polaroid-card reveal">
-                <img src="images/costumerPic2.PNG" alt="تصوير العملاء" class="polaroid-img">
+                <img src="images/costumerPic2.PNG" alt="تصوير العملاء" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/eee/999?text=Image'">
             </div>
             <div class="polaroid-card reveal">
-                <img src="images/costumerPic3.jpeg" alt="تصوير العملاء" class="polaroid-img">
+                <img src="images/costumerPic3.jpeg" alt="تصوير العملاء" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/eee/999?text=Image'">
             </div>
             <div class="polaroid-card reveal">
-                <img src="images/costumerPic4.jpeg" alt="تصوير العملاء" class="polaroid-img">
+                <img src="images/costumerPic4.jpeg" alt="تصوير العملاء" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/eee/999?text=Image'">
             </div>
             <div class="polaroid-card reveal">
-                <img src="images/costumerPic5.jpeg" alt="تصوير العملاء" class="polaroid-img">
+                <img src="images/costumerPic5.jpeg" alt="تصوير العملاء" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/eee/999?text=Image'">
             </div>
             <div class="polaroid-card reveal">
-                <img src="images/costumerPic6.jpeg" alt="تصوير العملاء" class="polaroid-img">
+                <img src="images/costumerPic6.jpeg" alt="تصوير العملاء" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/eee/999?text=Image'">
             </div>
         </div>
     </section>
@@ -959,6 +936,7 @@
             }
         }
         window.addEventListener("scroll", reveal);
+        // Call reveal on load
         reveal();
 
         const menuToggle = document.getElementById('mobile-menu');
