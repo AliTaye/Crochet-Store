@@ -572,20 +572,30 @@
         }
 
         /* ========================================================= */
-        /* RESPONSIVE MEDIA QUERIES (يجب أن تكون في نهاية ملف التصميم) */
+        /* RESPONSIVE MEDIA QUERIES */
         /* ========================================================= */
 
+        /* للايباد والجوالات بشكل عام (1024 بكسل فما دون) */
         @media (max-width: 1024px) {
             .feature-card { width: calc(33.333% - 20px); }
             
-            /* فرض صورتين في الصف لأجهزة الآيباد */
+            /* 3 صور في الصف لأجهزة الآيباد */
             .polaroid-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
             }
-        }
-        
-        @media (max-width: 900px) {
+
+            /* --- تعديلات الهيدر للايباد والجوال --- */
+            header { padding: 8px 20px; }
+            .logo-container { width: 55px; height: 55px; }
+
+            /* إظهار أيقونة المنيو (البرغر) */
+            .menu-toggle { 
+                display: block; 
+                font-size: 1.6rem; 
+            }
+
+            /* إظهار الصورة المنتصفة */
             .mobile-header-img {
                 display: block;
                 position: absolute;
@@ -598,14 +608,8 @@
                 object-fit: contain;
                 z-index: 1001;
             }
-        }
-        
-        @media (max-width: 768px) {
-            /* Header */
-            header { padding: 8px 15px; }
-            .logo-container { width: 50px; height: 50px; padding: 0; }
-            .mobile-header-img { max-width: 130px; max-height: 35px; }
-            .menu-toggle { display: block; font-size: 1.5rem; }
+
+            /* تحويل أقسام الصفحة إلى قائمة منسدلة (مخفية افتراضياً) */
             .nav-links {
                 position: absolute;
                 top: 100%;
@@ -619,6 +623,15 @@
             }
             .nav-links.active { right: 0; }
             .nav-links a { display: block; padding: 15px; font-size: 1.2rem; }
+        }
+        
+        /* للجوالات الصغيرة فقط (768 بكسل فما دون) */
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            header { padding: 8px 15px; }
+            .logo-container { width: 50px; height: 50px; padding: 0; }
+            .mobile-header-img { max-width: 130px; max-height: 35px; }
+            .menu-toggle { font-size: 1.5rem; }
 
             /* Hero & Stats */
             .hero h1 { font-size: 2.5rem; }
@@ -662,9 +675,6 @@
                 gap: 15px;
             }
             .polaroid-card { padding: 8px 8px 25px 8px; }
-            
-            /* إزالة تحديد الارتفاع السابق لتعمل خاصية المربع بشكل سليم */
-            .polaroid-img { /* تم إزالة height: 160px من هنا */ }
             
             .customer-photos p { font-size: 0.95rem; margin-bottom: 25px; }
 
