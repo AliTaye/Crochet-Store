@@ -422,6 +422,63 @@
             background-color: #f5f5f5;
             display: block; /* لإزالة أي مسافة سفلية افتراضية تحت الصورة */
         }
+        .polaroid-card {
+            cursor: pointer;
+        }
+
+        /* Image Viewer Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            object-fit: contain;
+        }
+        @keyframes zoomIn {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+        .close-image-modal {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 3001;
+            width: 45px;
+            height: 45px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-image-modal:hover {
+            background: rgba(211, 47, 47, 0.8);
+            transform: scale(1.1) rotate(90deg);
+        }
 
         /* About Section */
         .about {
@@ -574,6 +631,144 @@
             transform: scale(1.1);
         }
 
+        /* Interactive Gift & Modal Styles */
+        .interactive-gift-container {
+            margin: 15px auto 25px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        .gift-icon-wrapper {
+            font-size: 3.5rem;
+            color: #d32f2f;
+            filter: drop-shadow(0 4px 10px rgba(211, 47, 47, 0.4));
+            transition: transform 0.3s ease;
+        }
+        .interactive-gift-container:hover .gift-icon-wrapper {
+            transform: scale(1.15) rotate(5deg);
+        }
+        .bounce-anim {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+        .gift-hint {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            background: var(--white);
+            padding: 8px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            animation: pulse-hint 1.5s infinite;
+        }
+        @keyframes pulse-hint {
+            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+            50% { transform: scale(1.05); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); }
+            100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        }
+
+        /* Dark Overlay */
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(4px);
+        }
+        .dark-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Gift Modal */
+        .gift-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            background: var(--bg-color);
+            padding: 40px 30px;
+            border-radius: 20px;
+            z-index: 2001;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border: 3px solid var(--secondary-color);
+        }
+        .gift-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .modal-icon {
+            font-size: 5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+            transform: scale(0);
+        }
+        @keyframes popIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+        .gift-modal h3 {
+            font-size: 2.2rem;
+            color: #d32f2f;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .gift-modal p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--white);
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .close-modal:hover {
+            color: #d32f2f;
+            transform: scale(1.1) rotate(90deg);
+        }
+        .btn-small {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
         /* ========================================================= */
         /* RESPONSIVE MEDIA QUERIES */
         /* ========================================================= */
@@ -718,6 +913,14 @@
         <div class="reveal">
             <h1>عقد وغرزة🧶</h1> 
             <p>اهدِ قطعةً تُصنع يدويًا لمن تحب🎁</p>
+            
+            <div class="interactive-gift-container" id="mystery-gift">
+                <div class="gift-icon-wrapper">
+                    <i class="fa-solid fa-gift bounce-anim" id="gift-icon"></i>
+                </div>
+                <span class="gift-hint">اضغط لفتح هديتك! 🎁</span>
+            </div>
+
             <a href="#contact" class="btn">صمم هديتك المميزة الآن</a>
         </div>
     </section>
@@ -938,6 +1141,22 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <!-- Dark Overlay & Gift Modal -->
+    <div class="dark-overlay" id="dark-overlay"></div>
+    <div class="gift-modal" id="gift-modal">
+        <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+        <i class="fa-solid fa-box-open modal-icon"></i>
+        <h3>مبروك! 🎉</h3>
+        <p>لقد ربحت خصم <strong>50%</strong> لطلبك الأول!</p>
+        <a href="#contact" class="btn btn-small" onclick="closeGiftModal()">احصل على الخصم الآن</a>
+    </div>
+
+    <!-- Image Viewer Modal -->
+    <div class="image-modal" id="image-modal">
+        <span class="close-image-modal" id="close-image-modal"><i class="fa-solid fa-xmark"></i></span>
+        <img class="image-modal-content" id="expanded-img">
+    </div>
+
     <script>
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -1002,6 +1221,71 @@
             var whatsappUrl = "https://wa.me/" + myWhatsAppNumber + "?text=" + encodeURIComponent(rawMessage);
             window.open(whatsappUrl, '_blank');
         }
+
+        // Interactive Gift Logic
+        const mysteryGift = document.getElementById('mystery-gift');
+        const giftIcon = document.getElementById('gift-icon');
+        const darkOverlay = document.getElementById('dark-overlay');
+        const giftModal = document.getElementById('gift-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        mysteryGift.addEventListener('click', () => {
+            // Animation before opening
+            giftIcon.classList.remove('fa-gift', 'bounce-anim');
+            giftIcon.classList.add('fa-box-open');
+            giftIcon.style.transform = 'scale(1.2)';
+            
+            setTimeout(() => {
+                darkOverlay.classList.add('active');
+                giftModal.classList.add('active');
+            }, 300);
+        });
+
+        function closeGiftModal() {
+            darkOverlay.classList.remove('active');
+            giftModal.classList.remove('active');
+            
+            // Reset icon after closing
+            setTimeout(() => {
+                giftIcon.classList.remove('fa-box-open');
+                giftIcon.classList.add('fa-gift', 'bounce-anim');
+                giftIcon.style.transform = '';
+            }, 400);
+        }
+
+        closeModalBtn.addEventListener('click', closeGiftModal);
+        darkOverlay.addEventListener('click', closeGiftModal);
+
+        // Image Viewer Logic
+        const imageViewerModal = document.getElementById('image-modal');
+        const expandedImg = document.getElementById('expanded-img');
+        const closeImageViewerBtn = document.getElementById('close-image-modal');
+        const polaroidCards = document.querySelectorAll('.polaroid-card');
+
+        polaroidCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const img = this.querySelector('.polaroid-img');
+                if (img) {
+                    expandedImg.src = img.src;
+                    imageViewerModal.classList.add('show');
+                    document.body.style.overflow = 'hidden'; // منع التمرير في الخلفية
+                }
+            });
+        });
+
+        function closeImageViewer() {
+            imageViewerModal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // إعادة التمرير
+        }
+
+        closeImageViewerBtn.addEventListener('click', closeImageViewer);
+        
+        // إغلاق عند النقر في أي مكان خارج الصورة
+        imageViewerModal.addEventListener('click', function(e) {
+            if (e.target !== expandedImg) {
+                closeImageViewer();
+            }
+        });
     </script>
 </body>
 </html>
