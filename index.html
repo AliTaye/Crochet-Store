@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6A4B3A">
+    
+    <title>عِقد وغرزة 🧶 | هدايا تصنع بحب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #6A4B3A;
+            --secondary-color: #D49A6A;
+            --secondary-hover: #b87c4e;
+            --bg-color: #FEFAE0;
+            --text-color: #3E2723;
+            --white: #FFFFFF;
+            --accent-gold: #c98a58;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            background-color: var(--primary-color);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 10px 40px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        /* إصلاح مشكلة اللوغو - إظهاره بالكامل بدون قص */
+        .logo-container {
+            background-color: #ffffff;
+            width: 62px; 
+            height: 62px; 
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border: 2px solid var(--secondary-color);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        
+        .logo-container a {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* يمنع اقتصاص تفاصيل الشعار نهائياً */
+            border-radius: 50%;
+            display: block;
+        }
+
+        .mobile-header-img {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            list-style: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--bg-color);
+            font-weight: 600;
+            font-size: 0.98rem;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-links a:not(.nav-cta-btn):hover {
+            background-color: rgba(254, 250, 224, 0.2);
+            color: var(--white);
+        }
+
+        /* تنسيق زر اطلب الهدية في شريط التنقل ليكون جذاباً وواضحاً */
+        .nav-cta-btn {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #bd8152 100%) !important;
+            color: var(--white) !important;
+            padding: 9px 22px !important;
+            border-radius: 30px !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            box-shadow: 0 4px 14px rgba(212, 154, 106, 0.45);
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .nav-cta-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-cta-btn:hover {
+            background: linear-gradient(135deg, #c78957 0%, #a86d40 100%) !important;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 18px rgba(212, 154, 106, 0.65);
+            color: #ffffff !important;
+        }
+
+        .nav-cta-btn:hover i {
+            transform: rotate(-15deg) scale(1.15);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--bg-color);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 130px 20px 50px;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(254, 250, 224, 0.88), rgba(254, 250, 224, 0.95)), url('images/bgHero.jpg') center/cover no-repeat, var(--bg-color);
+        }
+        .hero h1 {
+            font-size: 3.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .hero h2 {
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        } 
+        
+        .hero p {
+            font-size: 1.15rem;
+            margin: 0 auto 30px;
+            max-width: 600px;
+        }
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(106, 75, 58, 0.2);
+        }
+        .btn:hover {
+            background-color: #50372A;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(106, 75, 58, 0.35);
+        }
+
+        .stats {
+            padding: 50px 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            text-align: center;
+        }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+        }
+        .stat-icon {
+            font-size: 2.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+        }
+        .stat-item h3 {
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+            color: var(--bg-color);
+            font-weight: 700;
+        }
+
+        .features {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 35px;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6a5345;
+            margin-top: -25px;
+            margin-bottom: 45px;
+        }
+        
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .feature-card {
+            background-color: var(--white);
+            padding: 30px 18px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: calc(25% - 20px); 
+            min-width: 210px;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(106, 75, 58, 0.12);
+        }
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .how-we-work {
+            padding: 85px 20px;
+            background: linear-gradient(180deg, rgba(254, 250, 224, 0.6) 0%, #FFFFFF 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1150px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+        /* خط اتصال بصري أنيق بين الخطوات */
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            right: 12%;
+            left: 12%;
+            height: 3px;
+            background: repeating-linear-gradient(to left, var(--secondary-color), var(--secondary-color) 8px, transparent 8px, transparent 16px);
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .step-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 32px 20px 28px;
+            box-shadow: 0 6px 20px rgba(106, 75, 58, 0.06);
+            border: 1.5px solid rgba(212, 154, 106, 0.25);
+            position: relative;
+            z-index: 2;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(106, 75, 58, 0.14);
+            border-color: var(--secondary-color);
+        }
+
+        .step-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -21px;
+            box-shadow: 0 4px 10px rgba(106, 75, 58, 0.3);
+            border: 3px solid var(--white);
+        }
+
+        .step-icon-wrap {
+            width: 72px;
+            height: 72px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto 18px;
+            color: var(--primary-color);
+            font-size: 1.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover .step-icon-wrap {
+            transform: scale(1.1) rotate(5deg);
+            background-color: rgba(212, 154, 106, 0.25);
+        }
+
+        .step-card h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            color: #555;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .gallery {
+            padding: 85px 20px 50px;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: -10px auto 40px;
+            max-width: 800px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 2px solid transparent;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover {
+            background-color: rgba(106, 75, 58, 0.12);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(106, 75, 58, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: auto;
+            align-items: stretch;
+        }
+
+        .gallery-card {
+            background-color: var(--bg-color);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .gallery-card.hidden {
+            display: none !important;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(106, 75, 58, 0.15);
+        }
+
+        .gallery-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 220px;
+            cursor: pointer;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.06);
+        }
+
+        .gallery-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: rgba(254, 250, 224, 0.95);
+            color: var(--primary-color);
+            backdrop-filter: blur(4px);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .gallery-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        .gallery-content h3 {
+            color: var(--text-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .gallery-content p {
+            color: #5d4037;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .gallery-order-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .gallery-order-btn:hover {
+            background-color: #50372A;
+            color: var(--white);
+        }
+
+        .gallery-load-more-wrap {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-load-more {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 28px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-load-more:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .custom-idea-banner {
+            margin: 45px auto 10px;
+            max-width: 800px;
+            background: linear-gradient(135deg, rgba(254, 250, 224, 0.9), #fff);
+            border: 2px dashed var(--secondary-color);
+            border-radius: 20px;
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: right;
+            box-shadow: 0 4px 15px rgba(106, 75, 58, 0.06);
+        }
+        .custom-idea-text h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+        .custom-idea-text p {
+            font-size: 0.95rem;
+            color: #5d4037;
+            margin: 0;
+        }
+        .btn-outline-custom {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-custom:hover {
+            background-color: #50372A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(106, 75, 58, 0.25);
+        }
+
+        /* Dedicated Reward Gift Section */
+        .reward-gift-section {
+            background: linear-gradient(180deg, var(--white) 0%, var(--bg-color) 100%);
+            padding: 55px 20px 65px;
+            text-align: center;
+            position: relative;
+        }
+        .reward-gift-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 30px rgba(106, 75, 58, 0.08);
+            border: 2px solid rgba(212, 154, 106, 0.35);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reward-gift-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px rgba(106, 75, 58, 0.16);
+            border-color: var(--secondary-color);
+        }
+        .reward-gift-tag {
+            background-color: rgba(211, 47, 47, 0.1);
+            color: #d32f2f;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .reward-gift-box h3 {
+            font-size: 1.45rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .reward-gift-box p {
+            font-size: 0.98rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .reward-gift-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #d32f2f;
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            transition: all 0.3s ease;
+        }
+        .reward-gift-box:hover .reward-gift-action {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+        }
+
+        .interactive-gift-container {
+            margin: 5px auto 12px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        .gift-icon-wrapper {
+            font-size: 3.5rem;
+            color: #d32f2f;
+            filter: drop-shadow(0 4px 10px rgba(211, 47, 47, 0.4));
+            transition: transform 0.3s ease;
+        }
+        .bounce-anim {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        .testimonials {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 1100px;
+            margin: auto;
+            position: relative;
+        }
+        .slider-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .testimo-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+            scrollbar-width: none;
+            width: 100%;
+        }
+        .testimo-slider::-webkit-scrollbar { display: none; }
+        .testimo-card {
+            background-color: var(--white);
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: calc(33.333% - 14px);
+            flex-shrink: 0;
+            scroll-snap-align: center;
+        }
+        .testimo-card p {
+            font-size: 1.02rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            white-space: normal;
+        }
+        .quote-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            opacity: 0.6;
+            margin-bottom: 15px;
+        }
+        .client-info { margin-top: 20px; }
+        .client-name {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        .stars {
+            color: #FFD700;
+            margin-top: 5px;
+        }
+        .slider-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .slider-btn:hover { background-color: #50372A; }
+        .next-btn { left: -18px; }
+        .prev-btn { right: -18px; }
+
+        .customer-photos {
+            padding: 80px 20px;
+            background-color: var(--white);
+            text-align: center;
+        }
+        .customer-photos p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: -20px auto 40px;
+            color: var(--text-color);
+        }
+        .polaroid-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+            padding-top: 20px;
+            align-items: start;
+        }
+        .polaroid-card {
+            background-color: var(--white);
+            padding: 12px 12px 28px 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid #eee;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        .polaroid-card:nth-child(1) { transform: rotate(-4deg); }
+        .polaroid-card:nth-child(2) { transform: rotate(3deg); margin-top: 15px; }
+        .polaroid-card:nth-child(3) { transform: rotate(-2deg); }
+        .polaroid-card:nth-child(4) { transform: rotate(4deg); margin-top: 10px; }
+        .polaroid-card:nth-child(5) { transform: rotate(-3deg); margin-top: -8px; }
+        .polaroid-card:nth-child(6) { transform: rotate(4deg); margin-top: 12px; }
+        
+        .polaroid-card:hover {
+            transform: scale(1.06) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .polaroid-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            display: block;
+        }
+
+        .about {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(254, 250, 224, 0.88), rgba(254, 250, 224, 0.96)), url('images/ourStory.jpg') center/cover no-repeat, var(--bg-color);
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lead-capture {
+            background: linear-gradient(135deg, #6A4B3A 0%, #9c6c51 50%, #50372A 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* الشريط الأحمر يظهر بحركة سلسة فقط بعد فتح الهدية */
+        .corner-ribbon {
+            position: absolute;
+            top: 25px;
+            left: -50px;
+            width: 200px;
+            background: #e60000;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transform: rotate(-45deg) scale(0.6);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .corner-ribbon.revealed {
+            opacity: 1;
+            transform: rotate(-45deg) scale(1);
+            pointer-events: auto;
+        }
+
+        .lead-capture h2 { color: var(--white); }
+        .lead-capture form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 25px auto 0;
+        }
+        .lead-capture input, .lead-capture textarea {
+            padding: 15px 20px;
+            width: 100%;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            text-align: right;
+            direction: rtl;
+        }
+        .lead-capture textarea { resize: vertical; }
+        
+        .phone-hint {
+            display: block;
+            text-align: right;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
+        .btn-dark {
+            background-color: var(--text-color);
+            color: var(--white);
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .btn-dark:hover { background-color: #2D1B13; }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--text-color);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .copyright-text {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: -15px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--white);
+            color: var(--text-color);
+            border-radius: 50%;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .social-icons a.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-icons a.tiktok:hover { background: #000000; text-shadow: 2px 2px 0 #00f2fe, -2px -2px 0 #fe0979;}
+        .social-icons a.whatsapp:hover { background: #25d366; color: #FFF; }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 58px;
+            height: 58px;
+            bottom: 35px;
+            right: 35px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 4px 15px rgba(0,0,0,0.25);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            background-color: #1ebe57;
+            transform: scale(1.1);
+        }
+
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .dark-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gift-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.6);
+            background: var(--bg-color);
+            padding: 35px 25px;
+            border-radius: 20px;
+            z-index: 2001;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 90%;
+            max-width: 380px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border: 3px solid var(--secondary-color);
+        }
+        .gift-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .modal-icon {
+            font-size: 4.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .gift-modal h3 {
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .gift-modal p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--white);
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .close-modal:hover {
+            color: #d32f2f;
+            transform: scale(1.1) rotate(90deg);
+        }
+        .btn-small {
+            padding: 12px 25px;
+            font-size: 1.05rem;
+            width: 100%;
+        }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        .close-image-modal {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 3001;
+            width: 42px;
+            height: 42px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-image-modal:hover {
+            background: rgba(211, 47, 47, 0.85);
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        @media (max-width: 1024px) {
+            header { padding: 10px 20px; }
+            .logo-container { width: 54px; height: 54px; }
+            .menu-toggle { display: block; font-size: 1.6rem; }
+
+            .mobile-header-img {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 170px; 
+                max-height: 40px; 
+                object-fit: contain;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: -100%; 
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                padding: 25px 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+                gap: 12px;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { display: block; padding: 12px; font-size: 1.1rem; }
+            
+            .nav-cta-btn {
+                margin-top: 10px;
+                display: inline-flex !important;
+                justify-content: center;
+                width: 85%;
+                max-width: 280px;
+            }
+
+            .feature-card { width: calc(33.333% - 20px); }
+            
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px 20px;
+            }
+            .steps-container::before {
+                display: none;
+            }
+            
+            .polaroid-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        }
+        
+        @media (max-width: 768px) {
+            header { padding: 8px 15px; }
+            .logo-container { width: 48px; height: 48px; padding: 3px; }
+            .mobile-header-img { max-width: 130px; max-height: 35px; }
+            
+            .hero h1 { font-size: 2.3rem; }
+            .hero h2 { font-size: 1.5rem; }
+            .hero p { font-size: 1rem; }
+
+            .stats { gap: 25px; }
+            .stat-item { min-width: 40%; }
+            
+            .features-grid { gap: 12px; }
+            .feature-card {
+                width: calc(50% - 12px);
+                padding: 20px 10px;
+                min-width: unset;
+            }
+            .icon-wrapper { width: 55px; height: 55px; margin-bottom: 12px; }
+            .feature-icon { font-size: 1.5rem; }
+            .feature-card h3 { font-size: 0.95rem; }
+            .feature-card p { font-size: 0.78rem; }
+
+            /* خطوات العمل على الجوال */
+            .steps-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                max-width: 340px;
+            }
+
+            .custom-idea-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 14px;
+                padding: 20px 16px;
+            }
+            .custom-idea-banner h3 { font-size: 1.15rem; }
+            .btn-outline-custom { width: 100%; justify-content: center; }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            .gallery-img-wrapper { height: 160px; }
+            .gallery-content { padding: 12px; }
+            .gallery-content h3 { font-size: 0.95rem; }
+            .gallery-content p { font-size: 0.8rem; margin-bottom: 12px; }
+            .gallery-order-btn { font-size: 0.82rem; padding: 8px 10px; }
+            .filter-btn { font-size: 0.85rem; padding: 8px 14px; }
+
+            .testimo-card { 
+                min-width: 82vw; 
+                width: 82vw;
+                flex: 0 0 82vw;
+                padding: 25px 20px;
+            } 
+            .testimo-slider { padding: 10px 4vw; gap: 15px; }
+            .slider-btn { display: none; }
+
+            .polaroid-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .polaroid-card { padding: 8px 8px 22px 8px; }
+            .customer-photos p { font-size: 0.95rem; margin-bottom: 25px; }
+
+            .about { background-attachment: scroll; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="#">
+                <img src="images/newLogo.jpg" alt="شعار عِقد وغرزة" onerror="this.src='https://placehold.co/120x120/6A4B3A/FEFAE0?text=عقد+وغرزة'">
+            </a>
+        </div>
+        
+        <img src="images/header-center-img.jpg" alt="عقد وغرزة" class="mobile-header-img" onerror="this.src='https://placehold.co/500x150/6A4B3A/FEFAE0?text=عِقد+وغرزة'">
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#how-we-work">كيف نشتغل؟</a></li>
+            <li><a href="#gallery">إبداعاتنا</a></li>
+            <li><a href="#testimonials">تجاربكم</a></li>
+            <li><a href="#customer-photos">بعدستكم</a></li>
+            <li><a href="#about">قصتنا</a></li>
+            <!-- زر مميز وجذاب للطلب -->
+            <li>
+                <a href="#contact" class="nav-cta-btn">
+                    <i class="fa-solid fa-gift"></i> اطلب الهدية
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <section class="hero">
+        <div class="reveal">
+            <h1>عقد وغرزة</h1> 
+            <h2>هدية حنونة زي أصحابها</h2>
+            <p>نحوّل فكرتك إلى قطعة كروشيه مصنوعة يدويًا، بتفاصيل تختارها أنت</p>
+            
+            <a href="#contact" class="btn">ساعدني اختار هديتي</a>
+        </div>
+    </section>
+
+    <section class="stats reveal">
+        <div class="stat-item">
+            <i class="fa-solid fa-face-smile stat-icon"></i> 
+            <h3>+100</h3>
+            <p>عميل سعيد</p>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-star stat-icon"></i> 
+            <h3>+150</h3>
+            <p>عمل فني متميز</p>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-hands-holding-circle stat-icon"></i>
+            <h3>%100</h3>
+            <p>صنع يدوي</p>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title reveal">لماذا نحن؟</h2>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-fingerprint feature-icon"></i>
+                </div>
+                <h3>مصنوعة لك أنت</h3>
+                <p>مو منتج جاهز؛ نغيّر الألوان والتفاصيل والحجم بما يناسب فكرتك</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-hand-holding-heart feature-icon"></i>
+                </div>
+                <h3>صُنعت يدويًا بعناية</h3>
+                <p>كل قطعة تأخذ وقتها حتى تطلع بالتفاصيل التي نستحق نسلمك إياها</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-box-open feature-icon"></i>
+                </div>
+                <h3>توصل جاهزة للإهداء</h3>
+                <p>تغليف وكرت إهداء، عشان ما يبقى عليك إلا تقدمها لمن تحب</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-gift feature-icon"></i>
+                </div>
+                <h3>هدايا مجانية مع كل طلب</h3>
+                <p>عشان أهم شي عندنا القرب، كل طلب لازم تجي معاه هدايا لإسعادكم</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 class="section-title reveal">أبرز إبداعاتنا</h2>
+        
+        <!-- Filter Tabs -->
+        <div class="gallery-filters reveal" id="gallery-filters">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fa-solid fa-border-all"></i> الكل
+            </button>
+            <button class="filter-btn" data-filter="kids">
+                <i class="fa-solid fa-baby"></i> أطفال
+            </button>
+            <button class="filter-btn" data-filter="winter">
+                <i class="fa-solid fa-snowflake"></i> شتوي
+            </button>
+            <button class="filter-btn" data-filter="cup">
+                <i class="fa-solid fa-mug-hot"></i> حامل كوب
+            </button>
+            <button class="filter-btn" data-filter="lipstick">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> حامل روج
+            </button>
+        </div>
+
+        <!-- 12 Products Grid across 4 categories -->
+        <div class="gallery-grid" id="gallery-grid">
+            
+            <!-- أطفال 1 -->
+            <div class="gallery-card reveal" data-category="kids">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">أطفال 🧸</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=دمية+دبدوب+كروشيه" alt="دمية دبدوب كروشيه" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>دمية دبدوب الأماني 🧸</h3>
+                        <p>صديق الأطفال الناعم والمثالي لأولى ذكرياتهم، خيوط قطنية آمنة 100%.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('دمية دبدوب الأماني')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- أطفال 2 -->
+            <div class="gallery-card reveal" data-category="kids">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">أطفال 🧸</span>
+                    <img src="https://placehold.co/400x300/D49A6A/FEFAE0?text=خشخيشة+أرنوب" alt="خشخيشة أرنوب كروشيه" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>خشخيشة أرنوب المواليد 🐰</h3>
+                        <p>حلقة خشب زان طبيعي مع لمسة أرنوب ناعمة لتطوير حواس الصغار.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('خشخيشة أرنوب المواليد')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- أطفال 3 -->
+            <div class="gallery-card reveal" data-category="kids">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">أطفال 🧸</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=بطانية+مواليد+ناعمة" alt="بطانية مواليد كروشيه" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>بطانية أحضان غيمة ☁️</h3>
+                        <p>غرز متماسكة وملمس فائق النعومة لتدفئة طفلك بحب وأناقة دافئة.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('بطانية أحضان غيمة')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- شتوي 1 -->
+            <div class="gallery-card reveal" data-category="winter">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">شتوي 🧣</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=سكارف+كلاسيك+دافئ" alt="سكارف كروشيه شتوي" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>سكارف الدفء الكلاسيكي 🧣</h3>
+                        <p>سكارف طويل بأطراف مزينة يمنح إطلالتك الشتوية فخامة لا تُقاوم.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('سكارف الدفء الكلاسيكي')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- شتوي 2 -->
+            <div class="gallery-card reveal" data-category="winter">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">شتوي 🧣</span>
+                    <img src="https://placehold.co/400x300/D49A6A/FEFAE0?text=قبعة+شتوية+صوف" alt="قبعة شتوية كروشيه" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>قبعة الشتاء العصرية ❄️</h3>
+                        <p>محاكة بعناية من خيوط الصوف التركي الممتاز لدفء وأناقة تدوم.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('قبعة الشتاء العصرية')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- شتوي 3 -->
+            <div class="gallery-card reveal" data-category="winter">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">شتوي 🧣</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=شال+مثلث+فاخر" alt="شال كروشيه فاخر" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>شال السهرات الدافئ ✨</h3>
+                        <p>شال بتصميم مثلث فريد وتفاصيل غرز مخرمة فخمة، هدية فاخرة للأمهات.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('شال السهرات الدافئ')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- حامل كوب 1 -->
+            <div class="gallery-card reveal" data-category="cup">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">حامل كوب ☕</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=حامل+كوب+الوردة" alt="حامل كوب كروشيه وردة" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>كوزي قهوة بلمسة الورد ☕</h3>
+                        <p>عازل حراري أنيق لكوب قهوتك اليومي يحمي يديك ويضيف بهجة لمكتبك.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('كوزي قهوة بلمسة الورد')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- حامل كوب 2 -->
+            <div class="gallery-card reveal" data-category="cup">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">حامل كوب ☕</span>
+                    <img src="https://placehold.co/400x300/D49A6A/FEFAE0?text=حامل+كوب+بجيب" alt="حامل كوب شتوي مع جيب" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>حامل كوب شتوي مع جيب 🍪</h3>
+                        <p>تصميم عملي مزود بجيب لطيف لوضع بسكويت شاي الصباح أو ملعقة التحريك.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('حامل كوب شتوي مع جيب')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- حامل كوب 3 -->
+            <div class="gallery-card reveal" data-category="cup">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">حامل كوب ☕</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=حامل+كوب+باستيل" alt="سليف كوب ألوان باستيل" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>سليف أكواب بألوان الباستيل 🎨</h3>
+                        <p>ألوان هادئة ومبهجة متناغمة مع أكواب السيراميك والأكواب الورقية.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('سليف أكواب بألوان الباستيل')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- حامل روج 1 -->
+            <div class="gallery-card reveal" data-category="lipstick">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">حامل روج 💄</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=تعليقة+حامل+روج" alt="تعليقة حامل روج للشنطة" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>ميدالية حامل الروج الأنيق 💄</h3>
+                        <p>تعليقة شنطة لطيفة تحفظ روجك المفضل في متناول يدك دائماً بدون ضياع.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('ميدالية حامل الروج الأنيق')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- حامل روج 2 -->
+            <div class="gallery-card reveal" data-category="lipstick">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">حامل روج 💄</span>
+                    <img src="https://placehold.co/400x300/D49A6A/FEFAE0?text=حامل+مرطب+شفايف" alt="حامل مرطب شفايف كروشيه" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>حافظة مرطب الشفايف 🌸</h3>
+                        <p>خفيفة وعملية بمشبك ذهبي لتعليقها في المفاتيح أو الحقيبة بكل بساطة.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('حافظة مرطب الشفايف')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+            <!-- حامل روج 3 -->
+            <div class="gallery-card reveal" data-category="lipstick">
+                <div class="gallery-img-wrapper">
+                    <span class="gallery-badge">حامل روج 💄</span>
+                    <img src="https://placehold.co/400x300/6A4B3A/FEFAE0?text=حامل+روج+بوب+كورن" alt="حامل روج غرزة البوب كورن" class="gallery-img">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>حامل روج بغرزة البوب كورن 🍿</h3>
+                        <p>تفاصيل بارزة ملموسة تعطي فخامة وحماية إضافية لمقتنياتك الجمالية.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="orderDirectly('حامل روج بغرزة البوب كورن')" class="gallery-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب مثلها
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Load More / Less Toggle Button -->
+        <div class="gallery-load-more-wrap">
+            <button class="btn-load-more" id="btn-load-more">
+                <span id="load-more-text">عرض المزيد من الإبداعات</span>
+                <i class="fa-solid fa-chevron-down" id="load-more-icon"></i>
+            </button>
+        </div>
+
+        <div class="custom-idea-banner reveal">
+            <div class="custom-idea-text">
+                <h3>عندك فكرة مختلفة؟ غالبًا نقدر نسويها ✨</h3>
+                <p>شاركنا صورتك أو فكرتك وحنحولها لقطعة كروشيه مميزة ومطابقة لطلبك.</p>
+            </div>
+            <a href="https://wa.me/966545065415?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%B9%D9%90%D9%82%D8%AF%20%D9%88%D8%BA%D8%B1%D8%B2%D8%A9%20%F0%9F%A7%B6%20%D8%B9%D9%86%D8%AF%D9%8A%20%D9%81%D9%83%D8%B1%D8%A9%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A9%20%D8%AD%D8%A7%D8%A8%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%87%D8%A7" target="_blank" class="btn-outline-custom">
+                <i class="fa-brands fa-whatsapp"></i> شاركنا فكرتك
+            </a>
+        </div>
+    </section>
+
+    <section id="how-we-work" class="how-we-work">
+        <div class="reveal">
+            <h2 class="section-title">كيف نشتغل؟</h2>
+            <p class="section-subtitle">خطوات بسيطة وواضحة لتحويل فكرتك إلى هدية ملموسة بحب 🧶</p>
+        </div>
+
+        <div class="steps-container">
+            <!-- خطوة 1 -->
+            <div class="step-card reveal">
+                <div class="step-badge">1</div>
+                <div class="step-icon-wrap">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h3>شاركنا فكرتك</h3>
+                <p>صورة، مناسبة، لون، شخصية أو حتى وصف بسيط يدور ببالك.</p>
+            </div>
+
+            <!-- خطوة 2 -->
+            <div class="step-card reveal">
+                <div class="step-badge">2</div>
+                <div class="step-icon-wrap">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <h3>نرتب التفاصيل معك</h3>
+                <p>الحجم، الخامات، التصميم وميزانيتك المناسبة بكل دقة ومرونة.</p>
+            </div>
+
+            <!-- خطوة 3 -->
+            <div class="step-card reveal">
+                <div class="step-badge">3</div>
+                <div class="step-icon-wrap">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <h3>نحدد السعر والمدة</h3>
+                <p>اتفاق واضح وشفاف على كل التفاصيل قبل ما نبدأ بالتنفيذ.</p>
+            </div>
+
+            <!-- خطوة 4 -->
+            <div class="step-card reveal">
+                <div class="step-badge">4</div>
+                <div class="step-icon-wrap">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h3>نبدأ الحياكة 🧶</h3>
+                <p>نحيكها بعناية، ونجهزها لك بتغليف فاخر وجاهزة للإهداء فوراً.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reward-gift-section reveal" id="reward-gift-section">
+        <div class="reward-gift-box" id="mystery-gift" title="اضغط لفتح هديتك!">
+            <span class="reward-gift-tag">مكافأة خاصة بالزوار ✨</span>
+            <div class="interactive-gift-container">
+                <div class="gift-icon-wrapper">
+                    <i class="fa-solid fa-gift bounce-anim" id="gift-icon"></i>
+                </div>
+            </div>
+            <h3>عشانك وصلت لهنا، تستاهل هدية 🎁</h3>
+            <p>اضغط على الصندوق واكتشف المفاجأة اللي جهزناها لك مع طلبك القادم!</p>
+            <div class="reward-gift-action">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> اضغط لفتح الهدية
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials reveal">
+        <h2 class="section-title">وصلهم.. وهذا رأيهم 🤎</h2>
+        <div class="slider-container">
+            <button class="slider-btn prev-btn" id="slide-prev" aria-label="السابق"><i class="fa-solid fa-chevron-right"></i></button>
+            
+            <div class="testimo-slider" id="slider-track">
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"تجنن تجنن تسلم يدينككك والله العظيم صنعتي يومنا</p>
+                        <p>طلعت احلى من توقعاتي والله خياللل"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- ريناد</span>
+                    </div>
+                </div>
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"تجنن بصيح احلى من الي توقعت!!😿😿🤍🤍🤍</p>
+                        <p>وحجمها بيرفكت بيرفكتتتت وشكرااا على الفراشه و الاستكرات"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- غلا الزهراني</span>
+                    </div>
+                </div>
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"كيوتتتتتت كانّها فراشات تطير🦋🦋🦋</p>
+                        <p>تجننن والله مرهه كيوتتت الله يسعدك يارب كيوتتتت عجبتني"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- عميلة متجر</span>
+                    </div>
+                </div>
+                <div class="testimo-card">
+                    <div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"افضل متجر ممكن تعاملت معاه اسلوب عسل وشغل مرتب وتعاون مع الزبون،</p>
+                        <p>خلود كمان عسل والبطانيه في قمة الجمال الله يرزقك ويوفقكم"</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-name">- مانع</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-btn next-btn" id="slide-next" aria-label="التالي"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+    </section>
+
+    <section id="customer-photos" class="customer-photos">
+        <h2 class="section-title reveal">بعدستكم 📸</h2>
+        <p class="reveal">أجمل اللحظات تكتمل بمشاركتكم..</p>
+        <div class="polaroid-grid">
+            <div class="polaroid-card reveal">
+                <img src="images/costumer/Pic1.jpeg" alt="تصوير العملاء 1" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/6A4B3A/FEFAE0?text=تصوير+1'">
+            </div>
+            <div class="polaroid-card reveal">
+                <img src="images/costumer/Pic2.PNG" alt="تصوير العملاء 2" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/D49A6A/FEFAE0?text=تصوير+2'">
+            </div>
+            <div class="polaroid-card reveal">
+                <img src="images/costumer/Pic3.jpeg" alt="تصوير العملاء 3" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/6A4B3A/FEFAE0?text=تصوير+3'">
+            </div>
+            <div class="polaroid-card reveal">
+                <img src="images/costumer/Pic4.jpeg" alt="تصوير العملاء 4" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/D49A6A/FEFAE0?text=تصوير+4'">
+            </div>
+            <div class="polaroid-card reveal">
+                <img src="images/costumer/Pic5.jpeg" alt="تصوير العملاء 5" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/6A4B3A/FEFAE0?text=تصوير+5'">
+            </div>
+            <div class="polaroid-card reveal">
+                <img src="images/costumer/Pic6.jpeg" alt="تصوير العملاء 6" class="polaroid-img" onerror="this.src='https://placehold.co/300x400/D49A6A/FEFAE0?text=تصوير+6'">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content reveal">
+            <h2 class="section-title">قصتنا</h2>
+            <p>لم نبدأ بمجرد خطاف وصوف، بل بدأنا بشغف تحويل الأشياء البسيطة إلى فن يُرتدى ويُقتنى. نؤمن أن الحِرف اليدوية هي قصص تُروى بلا كلمات، وفي كل عقدة كروشيه نضع جزءًا من وقتنا لنهديك قطعة تحمل روحًا، لا مجرد منتج، لتكون الهدية الأجمل لمن تحب.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="lead-capture reveal">
+        <div class="corner-ribbon" id="discountRibbon">خصم 20%</div>
+        <h2 class="section-title">محتار في هديتك؟ كلمنا وراح نساعدك 🤍!</h2>
+        <p>شاركنا فكرتك أو ميزانيتك، ونتواصل معك على الواتساب لمساعدتك في اختيار التصميم المناسب </p>
+        <form id="contactForm" onsubmit="sendToWhatsApp(event)">
+            <input type="text" id="senderName" placeholder="الاسم الكريم" required>
+            
+            <div>
+                <input type="tel" id="senderPhone" placeholder="رقم الجوال (مثال: 05XXXXXXXX)" pattern="^05[0-9]{8}$" title="يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام" required>
+                <small class="phone-hint">* يجب أن يبدأ الرقم بـ 05 ويتكون من 10 أرقام</small>
+            </div>
+            
+            <textarea id="senderMessage" placeholder="رسالتك أو فكرة الهدية اللي ببالك... (اختياري)" rows="3"></textarea>
+            <button type="submit" class="btn btn-dark">اطلب هديتك</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/crochet.store.s/" class="instagram" target="_blank" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@crochet.store.s?_t=zs-8tm1fh0j52m&_r=1" class="tiktok" target="_blank" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/966545065415" class="whatsapp" target="_blank" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p>صُنع بحب في مكة المكرمة ❤️</p>
+        <p class="copyright-text">جميع الحقوق محفوظة &copy; 2026 عِقد وغرزة</p>
+    </footer>
+
+    <a href="https://wa.me/966545065415" class="whatsapp-float" target="_blank" title="تواصل معنا على واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div class="dark-overlay" id="dark-overlay"></div>
+    
+    <!-- Modal for Gift -->
+    <div class="gift-modal" id="gift-modal">
+        <button class="close-modal" id="close-modal" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button>
+        <i class="fa-solid fa-box-open modal-icon"></i>
+        <h3>مبروك! 🎉</h3>
+        <p>لقد ربحت خصم <strong>20%</strong> على طلبك الأول!</p>
+        <a href="#contact" class="btn btn-small" onclick="closeGiftModal()">اطلب هديتك الآن</a>
+    </div>
+
+    <!-- Modal for Image Preview -->
+    <div class="image-modal" id="image-modal">
+        <span class="close-image-modal" id="close-image-modal" aria-label="إغلاق الصورة"><i class="fa-solid fa-xmark"></i></span>
+        <img class="image-modal-content" id="expanded-img" alt="صورة مكبرة">
+    </div>
+
+    <script>
+        /* Scroll Reveal Effect */
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 80;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+        reveal();
+
+        /* Mobile Menu Toggle */
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+
+        /* Testimonials Slider */
+        const sliderTrack = document.getElementById('slider-track');
+        const slideNext = document.getElementById('slide-next');
+        const slidePrev = document.getElementById('slide-prev');
+
+        if (slideNext && sliderTrack) {
+            slideNext.addEventListener('click', () => {
+                sliderTrack.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+        }
+
+        if (slidePrev && sliderTrack) {
+            slidePrev.addEventListener('click', () => {
+                sliderTrack.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+        }
+
+        /* Gallery Filter and Smart Pagination */
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+        const btnLoadMore = document.getElementById('btn-load-more');
+        const loadMoreText = document.getElementById('load-more-text');
+        const loadMoreIcon = document.getElementById('load-more-icon');
+
+        let currentFilter = 'all';
+        let isExpanded = false;
+        const INITIAL_VISIBLE_COUNT = 6;
+
+        function updateGalleryView() {
+            let matchedCards = [];
+
+            galleryCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (currentFilter === 'all' || category === currentFilter) {
+                    matchedCards.push(card);
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (currentFilter === 'all') {
+                if (btnLoadMore) btnLoadMore.style.display = 'inline-flex';
+                matchedCards.forEach((card, index) => {
+                    if (!isExpanded && index >= INITIAL_VISIBLE_COUNT) {
+                        card.classList.add('hidden');
+                    } else {
+                        card.classList.remove('hidden');
+                    }
+                });
+
+                if (loadMoreText && loadMoreIcon) {
+                    if (isExpanded) {
+                        loadMoreText.textContent = 'عرض أقل';
+                        loadMoreIcon.className = 'fa-solid fa-chevron-up';
+                    } else {
+                        loadMoreText.textContent = `عرض المزيد (+${matchedCards.length - INITIAL_VISIBLE_COUNT} أعمال)`;
+                        loadMoreIcon.className = 'fa-solid fa-chevron-down';
+                    }
+                }
+            } else {
+                if (btnLoadMore) btnLoadMore.style.display = 'none';
+                matchedCards.forEach(card => card.classList.remove('hidden'));
+            }
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.getAttribute('data-filter');
+                isExpanded = false;
+                updateGalleryView();
+            });
+        });
+
+        if (btnLoadMore) {
+            btnLoadMore.addEventListener('click', function() {
+                isExpanded = !isExpanded;
+                updateGalleryView();
+            });
+        }
+
+        updateGalleryView();
+
+        /* Direct WhatsApp Order */
+        function orderDirectly(productName) {
+            var myWhatsAppNumber = "966545065415";
+            var text = 
+`مرحبًا عِقد وغرزة🧶!
+عجبني هذا العمل الفني من موقعكم وحاب استفسر عن تفاصيله وأطلبه:
+✨ قطعة: "${productName}"
+مع كود خصم الـ 20% للطلب الأول😍`;
+
+            var url = "https://wa.me/" + myWhatsAppNumber + "?text=" + encodeURIComponent(text);
+            window.open(url, '_blank');
+        }
+
+        /* Contact Form Submit to WhatsApp */
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById('senderName').value.trim();
+            var phone = document.getElementById('senderPhone').value.trim();
+            var messageInput = document.getElementById('senderMessage').value.trim();
+            var message = messageInput ? messageInput : "طلب مساعدة في اختيار وتصميم هدية كروشيه مميزة";
+            var myWhatsAppNumber = "966545065415"; 
+            
+            var rawMessage =
+`مرحبًا في واتساب عِقد وغرزة🧶
+عشانك ارسلت لنا رسالة تستاهل هدية!
+وهي: خصم 20% لطلبك الأول😍
+
+تفضل بالطلب وبنشيلك في عيوننا👀❤️
+
+الاسم: ${name}
+رقم الجوال: ${phone}
+الرسالة: ${message}`;
+            
+            var whatsappUrl = "https://wa.me/" + myWhatsAppNumber + "?text=" + encodeURIComponent(rawMessage);
+            window.open(whatsappUrl, '_blank');
+        }
+
+        const mysteryGift = document.getElementById('mystery-gift');
+        const giftIcon = document.getElementById('gift-icon');
+        const darkOverlay = document.getElementById('dark-overlay');
+        const giftModal = document.getElementById('gift-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const discountRibbon = document.getElementById('discountRibbon');
+
+        let giftUnlocked = false;
+
+        if (mysteryGift && giftIcon && darkOverlay && giftModal) {
+            mysteryGift.addEventListener('click', () => {
+                giftIcon.classList.remove('fa-gift', 'bounce-anim');
+                giftIcon.classList.add('fa-box-open');
+                giftIcon.style.transform = 'scale(1.2)';
+                giftUnlocked = true;
+                
+                setTimeout(() => {
+                    darkOverlay.classList.add('active');
+                    giftModal.classList.add('active');
+                }, 250);
+            });
+        }
+
+        function closeGiftModal() {
+            if (darkOverlay) darkOverlay.classList.remove('active');
+            if (giftModal) giftModal.classList.remove('active');
+            
+            setTimeout(() => {
+                if (giftIcon) {
+                    giftIcon.classList.remove('fa-box-open');
+                    giftIcon.classList.add('fa-gift', 'bounce-anim');
+                    giftIcon.style.transform = '';
+                }
+                /* إظهار الشريط الأحمر بانتقال سلس فقط بعد فتح الهدية */
+                if (giftUnlocked && discountRibbon) {
+                    discountRibbon.classList.add('revealed');
+                }
+            }, 350);
+        }
+
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeGiftModal);
+        if (darkOverlay) darkOverlay.addEventListener('click', closeGiftModal);
+
+        /* Image Lightbox Viewer */
+        const imageViewerModal = document.getElementById('image-modal');
+        const expandedImg = document.getElementById('expanded-img');
+        const closeImageViewerBtn = document.getElementById('close-image-modal');
+
+        function openModalWithImage(src) {
+            if (expandedImg && imageViewerModal) {
+                expandedImg.src = src;
+                imageViewerModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeImageViewer() {
+            if (imageViewerModal) {
+                imageViewerModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.querySelectorAll('.polaroid-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const img = this.querySelector('.polaroid-img');
+                if (img) openModalWithImage(img.src);
+            });
+        });
+
+        document.querySelectorAll('.gallery-img-wrapper').forEach(wrapper => {
+            wrapper.addEventListener('click', function() {
+                const img = this.querySelector('.gallery-img');
+                if (img) openModalWithImage(img.src);
+            });
+        });
+
+        if (closeImageViewerBtn) closeImageViewerBtn.addEventListener('click', closeImageViewer);
+        
+        if (imageViewerModal) {
+            imageViewerModal.addEventListener('click', function(e) {
+                if (e.target !== expandedImg) {
+                    closeImageViewer();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
