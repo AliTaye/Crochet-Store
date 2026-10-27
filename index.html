@@ -55,18 +55,17 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
-        /* إصلاح مشكلة اللوغو - إظهاره بالكامل بدون قص */
+        /* تعديل حاوية اللوغو لتكون بدون خلفية أو إطار وتظهر اللوغو المربع فقط */
         .logo-container {
-            background-color: #ffffff;
+            background-color: transparent;
             width: 62px; 
             height: 62px; 
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            border: 2px solid var(--secondary-color);
+            padding: 0;
+            box-shadow: none;
+            border: none;
             flex-shrink: 0;
             overflow: hidden;
         }
@@ -82,8 +81,7 @@
         .logo-container img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* يمنع اقتصاص تفاصيل الشعار نهائياً */
-            border-radius: 50%;
+            object-fit: contain;
             display: block;
         }
 
@@ -115,7 +113,6 @@
             color: var(--white);
         }
 
-        /* تنسيق زر اطلب الهدية في شريط التنقل ليكون جذاباً وواضحاً */
         .nav-cta-btn {
             background: linear-gradient(135deg, var(--secondary-color) 0%, #bd8152 100%) !important;
             color: var(--white) !important;
@@ -228,13 +225,14 @@
             align-items: center;
             min-width: 120px;
         }
+        /* تصغير حجم الإحصائيات بنسبة 15% */
         .stat-icon {
-            font-size: 2.3rem;
+            font-size: 1.95rem; 
             color: var(--secondary-color);
             margin-bottom: 12px;
         }
         .stat-item h3 {
-            font-size: 2.8rem;
+            font-size: 2.38rem;
             margin-bottom: 5px;
             color: var(--bg-color);
             font-weight: 700;
@@ -321,7 +319,6 @@
             position: relative;
         }
 
-        /* خط اتصال بصري أنيق بين الخطوات */
         .steps-container::before {
             content: '';
             position: absolute;
@@ -624,7 +621,6 @@
             box-shadow: 0 4px 12px rgba(106, 75, 58, 0.25);
         }
 
-        /* Dedicated Reward Gift Section */
         .reward-gift-section {
             background: linear-gradient(180deg, var(--white) 0%, var(--bg-color) 100%);
             padding: 55px 20px 65px;
@@ -873,7 +869,6 @@
             overflow: hidden;
         }
         
-        /* الشريط الأحمر يظهر بحركة سلسة فقط بعد فتح الهدية */
         .corner-ribbon {
             position: absolute;
             top: 25px;
@@ -899,6 +894,8 @@
         }
 
         .lead-capture h2 { color: var(--white); }
+        #contact-heading { scroll-margin-top: 110px; }
+        
         .lead-capture form {
             display: flex;
             flex-direction: column;
@@ -981,30 +978,6 @@
         .social-icons a.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .social-icons a.tiktok:hover { background: #000000; text-shadow: 2px 2px 0 #00f2fe, -2px -2px 0 #fe0979;}
         .social-icons a.whatsapp:hover { background: #25d366; color: #FFF; }
-
-        .whatsapp-float {
-            position: fixed;
-            width: 58px;
-            height: 58px;
-            bottom: 35px;
-            right: 35px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 4px 15px rgba(0,0,0,0.25);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .whatsapp-float:hover {
-            background-color: #1ebe57;
-            transform: scale(1.1);
-        }
 
         .dark-overlay {
             position: fixed;
@@ -1193,15 +1166,28 @@
         
         @media (max-width: 768px) {
             header { padding: 8px 15px; }
-            .logo-container { width: 48px; height: 48px; padding: 3px; }
+            .logo-container { width: 48px; height: 48px; padding: 0; }
             .mobile-header-img { max-width: 130px; max-height: 35px; }
             
             .hero h1 { font-size: 2.3rem; }
             .hero h2 { font-size: 1.5rem; }
             .hero p { font-size: 1rem; }
 
-            .stats { gap: 25px; }
-            .stat-item { min-width: 40%; }
+            /* تعديل ظهور الاحصائيات في الجوال لتكون في صف واحد بالتساوي */
+            .stats { 
+                gap: 10px; 
+                flex-wrap: nowrap; 
+                justify-content: space-evenly;
+                padding: 40px 15px; 
+            }
+            .stat-item { 
+                min-width: unset; 
+                flex: 1; 
+                padding: 0 5px; 
+            }
+            .stat-icon { font-size: 1.4rem; margin-bottom: 8px; }
+            .stat-item h3 { font-size: 1.6rem; }
+            .stat-item p { font-size: 0.85rem; }
             
             .features-grid { gap: 12px; }
             .feature-card {
@@ -1214,7 +1200,6 @@
             .feature-card h3 { font-size: 0.95rem; }
             .feature-card p { font-size: 0.78rem; }
 
-            /* خطوات العمل على الجوال */
             .steps-container {
                 grid-template-columns: 1fr;
                 gap: 35px;
@@ -1258,7 +1243,6 @@
             .customer-photos p { font-size: 0.95rem; margin-bottom: 25px; }
 
             .about { background-attachment: scroll; }
-            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
         }
     </style>
 </head>
@@ -1283,7 +1267,6 @@
             <li><a href="#testimonials">تجاربكم</a></li>
             <li><a href="#customer-photos">بعدستكم</a></li>
             <li><a href="#about">قصتنا</a></li>
-            <!-- زر مميز وجذاب للطلب -->
             <li>
                 <a href="#contact" class="nav-cta-btn">
                     اطلب الهدية <i class="fa-solid fa-gift"></i>
@@ -1357,7 +1340,6 @@
     <section id="gallery" class="gallery">
         <h2 class="section-title reveal">إبداعاتنا</h2>
         
-        <!-- Filter Tabs -->
         <div class="gallery-filters reveal" id="gallery-filters">
             <button class="filter-btn active" data-filter="all">
                 الكل <i class="fa-solid fa-border-all"></i>
@@ -1376,10 +1358,7 @@
             </button>
         </div>
 
-        <!-- 12 Products Grid across 4 categories -->
         <div class="gallery-grid" id="gallery-grid">
-            
-            <!-- أطفال 1 -->
             <div class="gallery-card reveal" data-category="kids">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">أطفال 🧸</span>
@@ -1395,7 +1374,6 @@
                 </div>
             </div>
 
-            <!-- أطفال 2 -->
             <div class="gallery-card reveal" data-category="kids">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">أطفال 🧸</span>
@@ -1411,7 +1389,6 @@
                 </div>
             </div>
 
-            <!-- أطفال 3 -->
             <div class="gallery-card reveal" data-category="kids">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">أطفال 🧸</span>
@@ -1427,7 +1404,6 @@
                 </div>
             </div>
 
-            <!-- شتوي 1 -->
             <div class="gallery-card reveal" data-category="winter">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">شتوي 🧣</span>
@@ -1443,7 +1419,6 @@
                 </div>
             </div>
 
-            <!-- شتوي 2 -->
             <div class="gallery-card reveal" data-category="winter">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">شتوي 🧣</span>
@@ -1459,7 +1434,6 @@
                 </div>
             </div>
 
-            <!-- شتوي 3 -->
             <div class="gallery-card reveal" data-category="winter">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">شتوي 🧣</span>
@@ -1475,7 +1449,6 @@
                 </div>
             </div>
 
-            <!-- حامل كوب 1 -->
             <div class="gallery-card reveal" data-category="cup">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">حامل كوب ☕</span>
@@ -1491,7 +1464,6 @@
                 </div>
             </div>
 
-            <!-- حامل كوب 2 -->
             <div class="gallery-card reveal" data-category="cup">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">حامل كوب ☕</span>
@@ -1507,7 +1479,6 @@
                 </div>
             </div>
 
-            <!-- حامل كوب 3 -->
             <div class="gallery-card reveal" data-category="cup">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">حامل كوب ☕</span>
@@ -1523,7 +1494,6 @@
                 </div>
             </div>
 
-            <!-- حامل روج 1 -->
             <div class="gallery-card reveal" data-category="lipstick">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">حامل روج 💄</span>
@@ -1539,7 +1509,6 @@
                 </div>
             </div>
 
-            <!-- حامل روج 2 -->
             <div class="gallery-card reveal" data-category="lipstick">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">حامل روج 💄</span>
@@ -1555,7 +1524,6 @@
                 </div>
             </div>
 
-            <!-- حامل روج 3 -->
             <div class="gallery-card reveal" data-category="lipstick">
                 <div class="gallery-img-wrapper">
                     <span class="gallery-badge">حامل روج 💄</span>
@@ -1573,7 +1541,6 @@
 
         </div>
 
-        <!-- Load More / Less Toggle Button -->
         <div class="gallery-load-more-wrap">
             <button class="btn-load-more" id="btn-load-more">
                 <span id="load-more-text">عرض المزيد من الإبداعات</span>
@@ -1599,7 +1566,6 @@
         </div>
 
         <div class="steps-container">
-            <!-- خطوة 1 -->
             <div class="step-card reveal">
                 <div class="step-badge">1</div>
                 <div class="step-icon-wrap">
@@ -1609,7 +1575,6 @@
                 <p>ألوان، مقاسات، تصاميم، تفاصيل، شاركنا أي فكرة في بالك!</p>
             </div>
 
-            <!-- خطوة 2 -->
             <div class="step-card reveal">
                 <div class="step-badge">2</div>
                 <div class="step-icon-wrap">
@@ -1619,7 +1584,6 @@
                 <p>الحجم، الخامات، التصميم، وبناء على الميزانية الي تختارها</p>
             </div>
 
-            <!-- خطوة 3 -->
             <div class="step-card reveal">
                 <div class="step-badge">3</div>
                 <div class="step-icon-wrap">
@@ -1629,7 +1593,6 @@
                 <p>اتفاق واضح وشفاف على كل التفاصيل قبل ما نبدأ بالتنفيذ</p>
             </div>
 
-            <!-- خطوة 4 -->
             <div class="step-card reveal">
                 <div class="step-badge">4</div>
                 <div class="step-icon-wrap">
@@ -1747,7 +1710,7 @@
 
     <section id="contact" class="lead-capture reveal">
         <div class="corner-ribbon" id="discountRibbon">خصم 20%</div>
-        <h2 class="section-title">محتار في هديتك؟ كلمنا وراح نساعدك 🤍!</h2>
+        <h2 class="section-title" id="contact-heading">محتار في هديتك؟ كلمنا وراح نساعدك 🤍!</h2>
         <p>شاركنا فكرتك أو ميزانيتك واحنا بنساعدك في اختيار الهدية الأنسب 🤍</p>
         <form id="contactForm" onsubmit="sendToWhatsApp(event)">
             <input type="text" id="senderName" placeholder="الاسم الكريم" required>
@@ -1772,22 +1735,16 @@
         <p class="copyright-text">جميع الحقوق محفوظة &copy; 2026 عِقد وغرزة</p>
     </footer>
 
-    <a href="https://wa.me/966545065415" class="whatsapp-float" target="_blank" title="تواصل معنا على واتساب">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
     <div class="dark-overlay" id="dark-overlay"></div>
     
-    <!-- Modal for Gift -->
     <div class="gift-modal" id="gift-modal">
         <button class="close-modal" id="close-modal" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button>
         <i class="fa-solid fa-box-open modal-icon"></i>
         <h3>مبروك! 🎉</h3>
         <p>لقد ربحت خصم <strong>20%</strong> مع توصيل مجاني على طلبك الأول!</p>
-        <a href="#contact" class="btn btn-small" onclick="closeGiftModal()">اطلب هديتك الآن 🎁</a>
+        <a href="#contact-heading" class="btn btn-small" onclick="closeGiftModal()">اطلب هديتك الآن 🎁</a>
     </div>
 
-    <!-- Modal for Image Preview -->
     <div class="image-modal" id="image-modal">
         <span class="close-image-modal" id="close-image-modal" aria-label="إغلاق الصورة"><i class="fa-solid fa-xmark"></i></span>
         <img class="image-modal-content" id="expanded-img" alt="صورة مكبرة">
@@ -1978,10 +1935,6 @@
                     giftIcon.classList.add('fa-gift', 'bounce-anim');
                     giftIcon.style.transform = '';
                 }
-                /* إظهار الشريط الأحمر بانتقال سلس فقط بعد فتح الهدية */
-                if (giftUnlocked && discountRibbon) {
-                    discountRibbon.classList.add('revealed');
-                }
             }, 350);
         }
 
@@ -2031,6 +1984,24 @@
                 }
             });
         }
+
+        /* اظهار الشريط الأحمر بطريقة سلسة عند الوصول للقسم وإخفائه عند الخروج */
+        const contactSectionObj = document.getElementById('contact');
+        if (contactSectionObj && discountRibbon) {
+            const ribbonObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            discountRibbon.classList.add('revealed');
+                        }, 250);
+                    } else {
+                        discountRibbon.classList.remove('revealed');
+                    }
+                });
+            }, { threshold: 0.25 });
+            ribbonObserver.observe(contactSectionObj);
+        }
+
     </script>
 </body>
 </html>
