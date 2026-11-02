@@ -1121,15 +1121,12 @@
                 display: block;
                 position: absolute;
                 left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                height: 54px; /* يخلي اللوغو مالي الشريط */
-                width: auto;
-                max-width: 250px; 
+                transform: translateX(-50%);
+                max-width: 220px; 
+                max-height: 52px; 
                 object-fit: contain;
                 z-index: 1001;
             }
-
 
             .nav-links {
                 position: absolute;
@@ -1170,7 +1167,7 @@
         @media (max-width: 768px) {
             header { padding: 8px 15px; }
             .logo-container { width: 48px; height: 48px; padding: 0; }
-            .mobile-header-img { height: 48px; max-width: 200px; }
+            .mobile-header-img { max-width: 180px; max-height: 48px; }
             
             .hero h1 { font-size: 2.3rem; }
             .hero h2 { font-size: 1.5rem; }
